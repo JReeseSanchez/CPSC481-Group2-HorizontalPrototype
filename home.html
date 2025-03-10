@@ -9,13 +9,13 @@
 	<body>
       <header>
         <div class="titleHeader">
-            <button class="headerItem">Nav Bar</button>
+            <button class="headerItem" onclick="toggleNavBar()">Nav Bar</button>
             <h1 class="title">Travel Calgary</h1>
             <button class="headerItem">Sign In</button>
         </div>
         
         <hr>
-        <div class="NavBar">
+        <div id="NavBar">
               <button>Search</button>
               <button>List Itineraries</button>
           </div>
@@ -35,20 +35,17 @@
       </div>
 
       <script>
-        var coll = document.getElementsByClassName("headerItem");
-        var i;
-        
-        for (i = 0; i < coll.length; i++) {
-          coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight){
-              content.style.maxHeight = null;
+        var x = document.getElementById("NavBar");
+        x.style.display = "none";
+
+        function toggleNavBar() {
+            var x = document.getElementById("NavBar");
+            if (x.style.display === "none") {
+                x.style.display = "block";
             } else {
-              content.style.maxHeight = content.scrollHeight + "px";
-            } 
-          });
+                x.style.display = "none";
+            }
         }
-        </script>
+      </script>
 	</body>
 </html>
