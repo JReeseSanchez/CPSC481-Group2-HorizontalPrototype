@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+		
+	</head>
+	<body>
+      <header>
+        <div class="titleHeader">
+            <button class="headerItem">Nav Bar</button>
+            <h1 class="title">Travel Calgary</h1>
+            <button class="headerItem">Sign In</button>
+        </div>
+        
+        <hr>
+        <div class="NavBar">
+              <button>Search</button>
+              <button>List Itineraries</button>
+          </div>
+      </header>
+      <div class="mainPage">
+        <div class="optionBox">
+            <div class="container">
+                <img src="MushroomKingdom.jpg" height="250" width="250" alt="Search Activities">
+                <button>Search</button>
+    
+            </div>
+            <div class="container">
+                <img src="GothemCity.jpg" height="250" width="250" alt="List Itineraries">
+                <button>List Itineraries</button>
+            </div>
+        </div>
+      </div>
+
+      <script>
+        var coll = document.getElementsByClassName("NavBar");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+              content.style.maxHeight = null;
+            } else {
+              content.style.maxHeight = content.scrollHeight + "px";
+            } 
+          });
+        }
+        </script>
+	</body>
+</html>

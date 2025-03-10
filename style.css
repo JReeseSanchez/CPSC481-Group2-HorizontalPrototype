@@ -1,0 +1,71 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    width: 100%;
+    background-color: rgb(242, 249, 255);
+    margin: 0;
+    padding: 0;
+
+}
+
+header {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+button {
+    border: 0;
+    background-color: rgb(145, 176, 218);
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 20px;
+}
+
+button:hover {
+    background-color: rgb(188, 206, 231);
+
+}
+
+.titleHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerItem {
+    background-color: rgb(235, 70, 79);
+    width: 150px;
+}
+
+.title {
+    width: 25%;
+    padding: 10px;
+    text-align: center;
+}
+
+.optionBox, .NavBar {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container {
+    background-color: rgb(235, 70, 79);
+    width: 30%;
+    height: 450px;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+}
