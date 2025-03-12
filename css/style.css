@@ -30,7 +30,7 @@ a {
 
 button {
     border: 0;
-    background-color: rgb(145, 176, 218);
+    background-color: rgb(235, 70, 79);
     font-size: 20px;
     font-weight: 500;
     padding: 15px;
@@ -39,7 +39,7 @@ button {
 }
 
 button:hover {
-    background-color: rgb(188, 206, 231);
+    background-color: rgb(248, 98, 105);
 }
 
 #mainPage{
@@ -55,12 +55,12 @@ button:hover {
 }
 
 #headerItem {
-    background-color: rgb(235, 70, 79);
+    background-color: rgb(145, 176, 218);
     width: 150px;
 }
 
 #headerItem:hover {
-    background-color: rgb(248, 98, 105);
+    background-color: rgb(188, 206, 231);
 }
 
 #title {
@@ -80,7 +80,7 @@ button:hover {
 }
 
 #container {
-    background-color: rgb(235, 70, 79);
+    background-color: rgb(241, 213, 220);
     width: 30%;
     height: 450px;
     margin: 10px;
@@ -91,8 +91,4 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-#container:hover {
-    background-color: rgb(248, 98, 105);
 }
