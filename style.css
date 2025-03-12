@@ -28,7 +28,7 @@ button {
     font-size: 20px;
     font-weight: 500;
     padding: 10px;
-    margin: 5px;
+    margin: 10px;
     border-radius: 20px;
 }
 
@@ -73,4 +73,6 @@ button:hover {
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
