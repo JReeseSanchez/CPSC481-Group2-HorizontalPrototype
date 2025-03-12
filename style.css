@@ -45,6 +45,7 @@ button:hover {
 #headerItem {
     background-color: rgb(235, 70, 79);
     width: 150px;
+    align-items: center;
 }
 
 #title {
