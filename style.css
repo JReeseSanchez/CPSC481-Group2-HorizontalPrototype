@@ -10,7 +10,6 @@ body {
     background-color: rgb(242, 249, 255);
     margin: 0;
     padding: 0;
-
 }
 
 header {
@@ -22,19 +21,25 @@ h1 {
     font-size: 40px;
 }
 
+a {
+    color: inherit; 
+    text-decoration: inherit; 
+    margin: inherit;
+    padding: inherit;
+}
+
 button {
     border: 0;
     background-color: rgb(145, 176, 218);
     font-size: 20px;
     font-weight: 500;
-    padding: 10px;
-    margin: 10px;
+    padding: 15px;
+    margin: 15px;
     border-radius: 20px;
 }
 
 button:hover {
     background-color: rgb(188, 206, 231);
-
 }
 
 #titleHeader {
@@ -45,6 +50,10 @@ button:hover {
 #headerItem {
     background-color: rgb(235, 70, 79);
     width: 150px;
+}
+
+#headerItem:hover {
+    background-color: rgb(248, 98, 105);
 }
 
 #title {
@@ -74,4 +83,8 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#container:hover {
+    background-color: rgb(248, 98, 105);
 }

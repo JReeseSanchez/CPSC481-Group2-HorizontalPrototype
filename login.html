@@ -9,33 +9,15 @@
 	<body>
       <header>
         <div id="titleHeader">
-            <button id="headerItem" onclick="toggleNavBar()">Nav Bar</button>
+            <button id="headerItem"></button>
             <h1 id="title">Travel Calgary</h1>
             <button id="headerItem">Sign In</button>
         </div>
         
         <hr>
-        <div id="NavBar">
-            <a href="search.html"><button>Search</button></a>
-            <a href="listItnerary.html"><button>List Itineraries</button></a>
-        </div>
       </header>
       <div id="mainPage">
         
       </div>
-
-      <script>
-        var x = document.getElementById("NavBar");
-        x.style.display = "none";
-
-        function toggleNavBar() {
-            var x = document.getElementById("NavBar");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-      </script>
 	</body>
 </html>
