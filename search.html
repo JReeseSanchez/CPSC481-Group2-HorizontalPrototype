@@ -2,6 +2,7 @@
 <html lang="en">
 	<head>
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/search.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
 		
@@ -23,12 +24,57 @@
         </div>
       </header>
       <div id="mainPage">
-        
+        <h2>Search</h2>
+        <form>
+            <input type="text" id="fname" name="fname" value=""><br>
+            <div id="filters">
+                <select id="filterType" name="filterType">
+                    <option value="activity">Activity</option>
+                    <option value="food">Food</option>
+                    <option value="hotel">Hotel</option>
+                    <option value="park">Park</option>
+                    <option value="shopping">Shopping</option>
+                </select>
+                
+                <div id="distanceBox">
+                    <p>Distance: <span id="distance">10</span>km</p>
+                    <input type="range" id="filterDistance" min="5" max="100" step="5" value="10">
+
+                    <script>
+                        var slider = document.getElementById("filterDistance");
+                        var distance = document.getElementById("distance");
+                        distance.innerHTML = slider.value;
+    
+                        slider.oninput = function(){
+                            distance.innerHTML = this.value;
+                        }
+                    </script>
+                </div>
+                <select id="filterPrice" name="filterPrice">
+                    <option value="activity">Activity</option>
+                    <option value="food">Food</option>
+                    <option value="hotel">Hotel</option>
+                    <option value="park">Park</option>
+                    <option value="shopping">Shopping</option>
+                </select>
+                <select id="filterRating" name="filterRating">
+                    <option value="1">*</option>
+                    <option value="2">**</option>
+                    <option value="3">***</option>
+                    <option value="4">****</option>
+                    <option value="5">*****</option>
+                </select>
+            </div>
+        </form>
+        <button onclick="toggleFilters()"><strong>+</strong></button>
+
       </div>
 
       <script>
         var x = document.getElementById("NavBar");
         x.style.display = "none";
+        var filter = document.getElementById("filters");
+        filter.style.display = "none";
 
         function toggleNavBar() {
             var x = document.getElementById("NavBar");
@@ -38,6 +84,16 @@
                 x.style.display = "none";
             }
         }
+
+        function toggleFilters() {
+            var filter = document.getElementById("filters");
+            if (filter.style.display === "none") {
+                filter.style.display = "block";
+            } else {
+                filter.style.display = "none";
+            }
+        }
+
       </script>
 	</body>
 </html>
