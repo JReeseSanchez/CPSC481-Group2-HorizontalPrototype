@@ -26,7 +26,7 @@ button {
     border: 0;
     background-color: rgb(145, 176, 218);
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 500;
     padding: 10px;
     margin: 5px;
     border-radius: 20px;
@@ -37,23 +37,23 @@ button:hover {
 
 }
 
-.titleHeader {
+#titleHeader {
     display: flex;
     justify-content: space-between;
 }
 
-.headerItem {
+#headerItem {
     background-color: rgb(235, 70, 79);
     width: 150px;
 }
 
-.title {
+#title {
     width: 25%;
     padding: 10px;
     text-align: center;
 }
 
-.optionBox{
+#optionBox{
     display: flex;
     justify-content: space-around;
 }
@@ -62,7 +62,7 @@ button:hover {
     display: none;
 }
 
-.container {
+#container {
     background-color: rgb(235, 70, 79);
     width: 30%;
     height: 450px;
