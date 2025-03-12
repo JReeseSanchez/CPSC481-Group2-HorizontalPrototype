@@ -23,12 +23,16 @@ form > select {
 
 #filters {
     display: flex;
+    flex-direction: row;
 
-    background-color: rgb(200,200,200);
-
+    text-align: center;
+    align-items: center;
 }
 
-#filters * {
-    padding: 5px;
+#filter {
+    padding: 20px;
     margin: 10px;
+    background-color: rgb(200,200,200);
+    border-radius: 20px;
+    width: 20%;
 }
