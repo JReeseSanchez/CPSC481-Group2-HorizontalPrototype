@@ -88,34 +88,3 @@ header {
     text-align: center;
     margin-top: 30px;
 }
-
-/* Make the itinerary container responsive */
-@media (max-width: 1200px) {
-    .itinerary-scroll {
-        width: 90%;
-    }
-    
-    .day-box {
-        width: 230px;
-    }
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-    .itinerary-scroll {
-        width: 95%;
-    }
-    
-    .day-box {
-        width: 220px;
-    }
-    
-    .trip-title {
-        font-size: 28px;
-    }
-    
-    .trip-dates {
-        font-size: 16px;
-    }
-}
-

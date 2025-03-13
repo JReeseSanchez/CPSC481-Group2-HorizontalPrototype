@@ -1,0 +1,158 @@
+/* Activity Popup Styles */
+
+/* Clickable activity items */
+.activity-list {
+    list-style-type: none;
+    padding-left: 5px;
+    margin: 0;
+    width: 100%;
+}
+
+.activity-item {
+    padding: 8px 5px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    line-height: 1.4;
+    font-size: 14px;
+}
+
+.activity-item:hover {
+    background-color: rgba(178, 196, 233, 0.3); /* Light blue with opacity */
+}
+
+/* Ensure checkboxes don't cause overflow */
+.activity-item input[type="checkbox"] {
+    vertical-align: top;
+    margin-right: 5px;
+}
+
+/* Day box adjustments */
+.day-box {
+    overflow: hidden;
+}
+
+.day-box ul {
+    width: 100%;
+}
+
+/* Popup container */
+.activity-popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    background-color: transparent;
+}
+
+/* Popup content */
+.popup-content {
+    background-color: white;
+    width: 320px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    position: relative;
+    border: 1px solid #e0e0e0;
+}
+
+/* Close button */
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close-popup:hover {
+    color: rgb(235, 70, 79); /* Red from style.css */
+}
+
+/* Popup title */
+.popup-content h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 20px;
+    background-color: transparent;
+    padding: 0;
+    text-align: left;
+    border-radius: 0;
+}
+
+/* Popup details */
+.popup-time, .popup-location, .popup-price {
+    margin: 8px 0;
+    color: #555;
+    font-size: 15px;
+}
+
+/* Rating stars */
+.popup-rating {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+}
+
+.star-rating {
+    color: #FFD700; /* Gold color for stars */
+    margin-right: 10px;
+}
+
+.rating-text {
+    color: #555;
+    font-size: 14px;
+}
+
+/* Reviews section */
+.popup-reviews {
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.popup-reviews h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 16px;
+}
+
+.review {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.review:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.review-text {
+    margin: 0 0 5px 0;
+    font-style: italic;
+    color: #555;
+    font-size: 14px;
+}
+
+.reviewer {
+    margin: 0;
+    text-align: right;
+    color: #777;
+    font-size: 13px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .popup-content {
+        width: 280px;
+    }
+} 
