@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Calgary - Itinerary</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/itinerary.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div id="titleHeader">
+        <button id="headerItem" onclick="toggleNavBar()">
+            <img src="images/bars-solid.svg" height="50" width="50" alt="Navigation">
+        </button>
+        <h1 id="title"><a href="home.html">Travel Calgary</a></h1>
+        <a href="login.html"><button id="headerItem">Sign In</button></a>
+    </div>
+
+    <hr>
+
+    <!-- Navigation Bar -->
+    <div id="NavBar">
+        <a href="home.html"><button>Home</button></a>
+        <a href="search.html"><button>Search</button></a>
+        <a href="listItinerary.html"><button>List Itineraries</button></a>
+    </div>
+</header>
+
+<main>
+    <h2 class="trip-title">Summer Trip</h2>
+    <p class="trip-dates">June 17, 2024 - June 23, 2024</p>
+
+    <!-- Scrollable Itinerary Section -->
+    <div class="itinerary-scroll">
+        <div class="itinerary-container">
+            <!-- Day 1 -->
+            <div class="day-box">
+                <h3>Tuesday, June 17</h3>
+                <p><strong>Stay:</strong> Fairmont Hotel</p>
+                <ul>
+                    <li><input type="checkbox"> Prince Edward Island</li>
+                    <li><input type="checkbox"> 17th Ave</li>
+                    <li><input type="checkbox"> Mr. Puffs</li>
+                </ul>
+                <button class="add-button">+</button>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="day-box">
+                <h3>Wednesday, June 18</h3>
+                <p><strong>Stay:</strong> Fairmont Hotel</p>
+                <ul>
+                    <li>9:00 - 9:00: Breakfast and get ready</li>
+                    <li>9:00 - 12:00: Explore Downtown</li>
+                    <li>12:00 - 13:00: Lunch at Jump Room</li>
+                    <li>13:00 - 13:30: C-Train to Chinook Mall</li>
+                    <li>13:30 - 18:00: Shop and Dine</li>
+                    <li>18:00 - 18:30: C-Train back to Hotel</li>
+                </ul>
+                <button class="add-button">+</button>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="day-box">
+                <h3>Thursday, June 19</h3>
+                <p><strong>Stay:</strong> Fairmont Hotel</p>
+                <ul>
+                    <li><input type="checkbox"> Go to Banff</li>
+                    <li><input type="checkbox"> Visit Lake Louise</li>
+                </ul>
+                <button class="add-button">+</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    function toggleNavBar() {
+        var x = document.getElementById("NavBar");
+        x.style.display = x.style.display === "none" ? "block" : "none";
+    }
+</script>
+
+</body>
+</html>
