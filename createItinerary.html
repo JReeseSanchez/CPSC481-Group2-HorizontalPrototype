@@ -100,7 +100,7 @@
                     <div class="activities-container">
                         <p class="empty-message">No activities planned</p>
                     </div>
-                    <button class="add-button" onclick="goToSearch(${i + 1})">+</button>
+                    <button class="add-button" onclick="goToSearch(${i + 1})">+ Add Activity</button>
                 `;
                 
                 container.appendChild(dayBox);
@@ -111,6 +111,10 @@
             localStorage.setItem('currentEditDay', dayNumber);
             window.location.href = 'search.html';
         }
+      </script>
+	</body>
+</html>
+
       </script>
 	</body>
 </html>
