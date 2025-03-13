@@ -8,7 +8,7 @@ input[type=text] {
     background-position: 10px 10px;
     background-repeat: no-repeat;
 
-    padding: 10px 20px;
+    padding: 20px 20px;
     
     border-radius: 20px;
     margin: 10px;
@@ -16,11 +16,22 @@ input[type=text] {
     width: 75%;
 }
 
+#searchBar {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+
 form {    
-    width: 80%;
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    align-items: center;
-    /* Ensure it doesn't break if the screen is too small */
+    align-items: flex-start;
+    justify-content: center;
+    width: 75%;
+    padding: 10px;
+    margin: 10px;
 }
 
 form > select {
@@ -34,6 +45,7 @@ form > select {
 
     text-align: center;
     align-items: center;
+    width: 60%;
 }
 
 #filter {
@@ -45,9 +57,16 @@ form > select {
     width: 20%;
 }
 
-#toggleFilters {
+#toggleFilter {
+    background-color: rgb(152, 163, 179);
     text-align: center;
     align-items: center;
+    width: 60%;
+    height: 40px;
+}
+
+#toggleFilter:hover {
+    background-color: rgb(207, 219, 236);
 }
 
 #optionButtons {
@@ -55,3 +74,45 @@ form > select {
     justify-content: space-between;
     width: 50%;
 }
+
+#results{
+    width: 60%;
+}
+
+#result {
+    display: flex;
+    background-color: rgb(217, 229, 245);
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    text-align: left;
+}
+
+#result > img{
+    margin: 15px;
+    border-radius: 10px;
+}
+
+#result:hover {
+    background-color: rgb(223, 234, 248);
+}
+
+#resultInfo{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#resultInfo>h2 {
+    margin-left: 50px;
+}
+
+#resultDetails {
+    display: flex;
+    text-align: left;
+}
+
+#resultDetails > p {
+    margin: 10px 50px
+}
+

@@ -26,6 +26,7 @@ a {
     text-decoration: none; 
     margin: inherit;
     padding: inherit;
+    justify-content: center;
 }
 
 button {
@@ -92,4 +93,8 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+img {
+    object-fit: contain;
 }
