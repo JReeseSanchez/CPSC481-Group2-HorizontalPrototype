@@ -1,0 +1,40 @@
+#results{
+    width: 60%;
+}
+
+#result {
+    display: flex;
+    background-color: rgb(217, 229, 245);
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    text-align: left;
+}
+
+#result > img{
+    margin: 15px;
+    border-radius: 10px;
+}
+
+#result:hover {
+    background-color: rgb(223, 234, 248);
+}
+
+#resultInfo{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#resultInfo>h2 {
+    margin-left: 50px;
+}
+
+#resultDetails {
+    display: flex;
+    text-align: left;
+}
+
+#resultDetails > p {
+    margin: 10px 50px
+}

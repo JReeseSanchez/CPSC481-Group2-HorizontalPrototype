@@ -6,11 +6,47 @@
 }
 
 #itineraryList {
-    background-color: rgb(194, 194, 194);
     padding:  30px 20%;
     margin: 20px;
+    width: 60%;
 }
 
 #red {
     background-color: rgb(235, 70, 79);
+}
+
+#results{
+    width: 60%;
+}
+
+#result {
+    display: flex;
+    background-color: rgb(217, 229, 245);
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    text-align: left;
+}
+
+#result > img{
+    margin: 15px;
+    border-radius: 10px;
+}
+
+#result:hover {
+    background-color: rgb(223, 234, 248);
+}
+
+#resultInfo{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#resultInfo>h2 {
+    margin-left: 50px;
+}
+
+#resultInfo > p {
+    margin-left: 50px;
 }
