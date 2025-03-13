@@ -6,7 +6,9 @@
     <title>Travel Calgary - Itinerary</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/itinerary.css">
+    <link rel="stylesheet" href="css/activity-popup.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
@@ -25,11 +27,11 @@
     <div id="NavBar">
         <a href="home.html"><button>Home</button></a>
         <a href="search.html"><button>Search</button></a>
-        <a href="listItinerary.html"><button>List Itineraries</button></a>
+        <a href="listItinary.html"><button>List Itineraries</button></a>
     </div>
 </header>
 
-<main>
+<div id="mainPage">
     <h2 class="trip-title">Summer Trip</h2>
     <p class="trip-dates">June 17, 2024 - June 23, 2024</p>
 
@@ -40,49 +42,283 @@
             <div class="day-box">
                 <h3>Tuesday, June 17</h3>
                 <p><strong>Stay:</strong> Fairmont Hotel</p>
-                <ul>
-                    <li><input type="checkbox"> Prince Edward Island</li>
-                    <li><input type="checkbox"> 17th Ave</li>
-                    <li><input type="checkbox"> Mr. Puffs</li>
+                <ul class="activity-list">
+                    <li class="activity-item" onclick="showActivityDetails(this, 'prince-edward')">
+                        <input type="checkbox"> Prince Edward Island
+                    </li>
+                    <li class="activity-item" onclick="showActivityDetails(this, '17th-ave')">
+                        <input type="checkbox"> 17th Ave
+                    </li>
+                    <li class="activity-item" onclick="showActivityDetails(this, 'mr-puffs')">
+                        <input type="checkbox"> Mr. Puffs
+                    </li>
                 </ul>
-                <button class="add-button">+</button>
+                <button class="add-button" onclick="window.location.href='search.html'">+ Add Activity</button>
             </div>
 
             <!-- Day 2 -->
             <div class="day-box">
                 <h3>Wednesday, June 18</h3>
                 <p><strong>Stay:</strong> Fairmont Hotel</p>
-                <ul>
-                    <li>9:00 - 9:00: Breakfast and get ready</li>
-                    <li>9:00 - 12:00: Explore Downtown</li>
-                    <li>12:00 - 13:00: Lunch at Jump Room</li>
-                    <li>13:00 - 13:30: C-Train to Chinook Mall</li>
-                    <li>13:30 - 18:00: Shop and Dine</li>
-                    <li>18:00 - 18:30: C-Train back to Hotel</li>
+                <ul class="activity-list">
+                    <li class="activity-item" onclick="showActivityDetails(this, 'breakfast')">
+                        <span>9:00 - 9:00: Breakfast and get ready</span>
+                    </li>
+                    <li class="activity-item" onclick="showActivityDetails(this, 'downtown')">
+                        <span>9:00 - 12:00: Explore Downtown</span>
+                    </li>
+                    <li class="activity-item" onclick="showActivityDetails(this, 'jump-room')">
+                        <span>12:00 - 13:00: Lunch at Jump Room</span>
+                    </li>
+                    <li class="activity-item" onclick="showActivityDetails(this, 'c-train')">
+                        <span>13:00 - 13:30: C-Train to Chinook Mall</span>
+                    </li>
+                    <li class="activity-item" onclick="showActivityDetails(this, 'chinook-mall')">
+                        <span>13:30 - 18:00: Shop and Dine</span>
+                    </li>
+                    <li class="activity-item" onclick="showActivityDetails(this, 'c-train-back')">
+                        <span>18:00 - 18:30: C-Train back to Hotel</span>
+                    </li>
                 </ul>
-                <button class="add-button">+</button>
+                <button class="add-button" onclick="window.location.href='search.html'">+ Add Activity</button>
             </div>
 
             <!-- Day 3 -->
             <div class="day-box">
                 <h3>Thursday, June 19</h3>
                 <p><strong>Stay:</strong> Fairmont Hotel</p>
-                <ul>
-                    <li><input type="checkbox"> Go to Banff</li>
-                    <li><input type="checkbox"> Visit Lake Louise</li>
+                <ul class="activity-list">
+                    <li class="activity-item" onclick="showActivityDetails(this, 'banff')">
+                        <input type="checkbox"> Go to Banff
+                    </li>
+                    <li class="activity-item" onclick="showActivityDetails(this, 'lake-louise')">
+                        <input type="checkbox"> Visit Lake Louise
+                    </li>
+                    <li class="activity-item" onclick="showActivityDetails(this, 'long-activity')">
+                        <input type="checkbox"> This is a longer activity name that should wrap properly within the day box
+                    </li>
                 </ul>
-                <button class="add-button">+</button>
+                <button class="add-button" onclick="window.location.href='search.html'">+ Add Activity</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Activity Details Popup -->
+    <div id="activityPopup" class="activity-popup">
+        <div class="popup-content">
+            <span class="close-popup" onclick="closePopup()">&times;</span>
+            <h3 id="popupTitle">Activity Name</h3>
+            <p id="popupTime" class="popup-time">Time: 9:00 AM - 12:00 PM</p>
+            <p id="popupLocation" class="popup-location">Location: Downtown Calgary</p>
+            <p id="popupPrice" class="popup-price">Price: $$</p>
+            <div id="popupRating" class="popup-rating">
+                <span class="star-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </span>
+                <span class="rating-text">4.0/5.0</span>
+            </div>
+            <div id="popupReviews" class="popup-reviews">
+                <h4>Reviews</h4>
+                <div class="review">
+                    <p class="review-text">"Great experience! Would definitely recommend."</p>
+                    <p class="reviewer">- John D.</p>
+                </div>
+                <div class="review">
+                    <p class="review-text">"Loved it. The staff was very friendly."</p>
+                    <p class="reviewer">- Sarah M.</p>
+                </div>
             </div>
         </div>
     </div>
 </main>
 
 <script>
+    // Toggle navigation bar
     function toggleNavBar() {
         var x = document.getElementById("NavBar");
         x.style.display = x.style.display === "none" ? "block" : "none";
     }
+    
+    // Initialize NavBar display
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById("NavBar").style.display = "none";
+    });
+    
+    // Activity details data (hardcoded for demonstration)
+    const activityData = {
+        'prince-edward': {
+            title: 'Prince Edward Island',
+            time: '10:00 AM - 2:00 PM',
+            location: 'Prince Edward Island, Calgary',
+            price: '$$$',
+            rating: 4.5,
+            reviews: [
+                { text: 'Beautiful island with amazing views!', author: 'Emma T.' },
+                { text: 'Worth the visit, but a bit expensive.', author: 'Michael R.' }
+            ]
+        },
+        '17th-ave': {
+            title: '17th Avenue',
+            time: '2:30 PM - 5:00 PM',
+            location: '17th Ave SW, Calgary',
+            price: '$$',
+            rating: 4.2,
+            reviews: [
+                { text: 'Great shopping and dining options!', author: 'Jessica K.' },
+                { text: 'Vibrant street with lots to do.', author: 'David L.' }
+            ]
+        },
+        'mr-puffs': {
+            title: 'Mr. Puffs',
+            time: '5:30 PM - 6:30 PM',
+            location: '123 Main St, Calgary',
+            price: '$',
+            rating: 4.8,
+            reviews: [
+                { text: 'Best dessert in Calgary!', author: 'Alex P.' },
+                { text: 'The puffs are amazing, must try!', author: 'Sophia G.' }
+            ]
+        },
+        'downtown': {
+            title: 'Explore Downtown',
+            time: '9:00 AM - 12:00 PM',
+            location: 'Downtown Calgary',
+            price: '$',
+            rating: 4.0,
+            reviews: [
+                { text: 'Great architecture and city views.', author: 'Robert J.' },
+                { text: 'Lots of interesting shops and cafes.', author: 'Linda M.' }
+            ]
+        },
+        'jump-room': {
+            title: 'Lunch at Jump Room',
+            time: '12:00 PM - 1:00 PM',
+            location: '456 Centre St, Calgary',
+            price: '$$',
+            rating: 4.3,
+            reviews: [
+                { text: 'Delicious food and great atmosphere!', author: 'Thomas B.' },
+                { text: 'Good service but a bit pricey.', author: 'Hannah W.' }
+            ]
+        },
+        'banff': {
+            title: 'Go to Banff',
+            time: '8:00 AM - 6:00 PM',
+            location: 'Banff National Park',
+            price: '$$',
+            rating: 5.0,
+            reviews: [
+                { text: 'Breathtaking views and amazing hiking trails!', author: 'Chris P.' },
+                { text: 'One of the most beautiful places I\'ve ever visited.', author: 'Maria S.' }
+            ]
+        },
+        'lake-louise': {
+            title: 'Visit Lake Louise',
+            time: '10:00 AM - 3:00 PM',
+            location: 'Lake Louise, Banff National Park',
+            price: '$$',
+            rating: 4.9,
+            reviews: [
+                { text: 'The turquoise water is stunning!', author: 'James F.' },
+                { text: 'A must-see when visiting Banff.', author: 'Emily R.' }
+            ]
+        },
+        'long-activity': {
+            title: 'Long Activity Name',
+            time: '1:00 PM - 4:00 PM',
+            location: 'Various locations in Calgary',
+            price: '$$',
+            rating: 4.1,
+            reviews: [
+                { text: 'Great activity despite the long name!', author: 'Taylor S.' },
+                { text: 'Worth checking out if you have time.', author: 'Jordan B.' }
+            ]
+        }
+    };
+    
+    // Show activity details popup
+    function showActivityDetails(element, activityId) {
+        // Prevent checkbox from being checked/unchecked when clicking on the activity
+        event.stopPropagation();
+        
+        const popup = document.getElementById('activityPopup');
+        const data = activityData[activityId] || {
+            title: 'Activity Details',
+            time: 'Time not specified',
+            location: 'Location not specified',
+            price: '$',
+            rating: 3.0,
+            reviews: [{ text: 'No reviews yet.', author: '' }]
+        };
+        
+        // Populate popup with activity data
+        document.getElementById('popupTitle').textContent = data.title;
+        document.getElementById('popupTime').textContent = `Time: ${data.time}`;
+        document.getElementById('popupLocation').textContent = `Location: ${data.location}`;
+        document.getElementById('popupPrice').textContent = `Price: ${data.price}`;
+        
+        // Set rating stars
+        const ratingStars = document.getElementById('popupRating').querySelector('.star-rating');
+        ratingStars.innerHTML = '';
+        for (let i = 1; i <= 5; i++) {
+            const star = document.createElement('i');
+            star.className = i <= Math.floor(data.rating) ? 'fas fa-star' : 'far fa-star';
+            ratingStars.appendChild(star);
+        }
+        document.getElementById('popupRating').querySelector('.rating-text').textContent = `${data.rating}/5.0`;
+        
+        // Set reviews
+        const reviewsContainer = document.getElementById('popupReviews');
+        reviewsContainer.innerHTML = '<h4>Reviews</h4>';
+        data.reviews.forEach(review => {
+            const reviewDiv = document.createElement('div');
+            reviewDiv.className = 'review';
+            reviewDiv.innerHTML = `
+                <p class="review-text">"${review.text}"</p>
+                <p class="reviewer">- ${review.author}</p>
+            `;
+            reviewsContainer.appendChild(reviewDiv);
+        });
+        
+        // Position popup next to the clicked activity
+        const rect = element.getBoundingClientRect();
+        const popupContent = popup.querySelector('.popup-content');
+        
+        // Check if there's enough space on the right
+        if (rect.right + 350 < window.innerWidth) {
+            popup.style.left = `${rect.right + 10}px`;
+            popup.style.top = `${rect.top - 20}px`;
+        } else {
+            // Not enough space on right, show on left
+            popup.style.left = `${rect.left - 350 - 10}px`;
+            popup.style.top = `${rect.top - 20}px`;
+        }
+        
+        // Show popup
+        popup.style.display = 'block';
+    }
+    
+    // Close popup
+    function closePopup() {
+        document.getElementById('activityPopup').style.display = 'none';
+    }
+    
+    // Close popup when clicking outside
+    window.onclick = function(event) {
+        const popup = document.getElementById('activityPopup');
+        if (event.target == popup) {
+            popup.style.display = 'none';
+        }
+    }
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
