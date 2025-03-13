@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/itinerary.css">
+        <link rel="stylesheet" href="css/createItinerary.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+        <title>Create Itinerary - Travel Calgary</title>
+	</head>
+	<body>
+      <header>
+        <div id="titleHeader">
+            <button id="headerItem" onclick="toggleNavBar()"><img src="images/bars-solid.svg" height="50" width="50" alt="Navigation Bar"></button>
+            <h1 id="title"><a href="home.html">Travel Calgary</a></h1>
+            <a href="login.html"><button id="headerItem">Sign In</button></a>
+        </div>
+
+        <hr>
+
+        <div id="NavBar">
+            <a href="home.html"><button>Home</button></a>
+            <a href="search.html"><button>Search</button></a>
+            <a href="listItinary.html"><button>List Itineraries</button></a>
+        </div>
+      </header>
+      
+      <div id="mainPage">
+        <h2 id="itineraryTitle" class="trip-title">Itinerary Title</h2>
+        <p id="itineraryDates" class="trip-dates">Start Date - End Date</p>
+        
+        <div class="itinerary-scroll">
+            <div id="itineraryContainer" class="itinerary-container">
+            </div>
+        </div>
+      </div>
+
+      <script>
+        var x = document.getElementById("NavBar");
+        x.style.display = "none";
+
+        function toggleNavBar() {
+            var x = document.getElementById("NavBar");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+        
+        window.onload = function() {
+            const title = localStorage.getItem('itineraryTitle') || 'My Itinerary';
+            const startDate = localStorage.getItem('itineraryStartDate');
+            const endDate = localStorage.getItem('itineraryEndDate');
+            
+            document.getElementById('itineraryTitle').textContent = title;
+            
+            if (startDate && endDate) {
+                const formattedStartDate = new Date(startDate).toLocaleDateString('en-US', { 
+                    month: 'short', 
+                    day: 'numeric', 
+                    year: 'numeric' 
+                });
+                
+                const formattedEndDate = new Date(endDate).toLocaleDateString('en-US', { 
+                    month: 'short', 
+                    day: 'numeric', 
+                    year: 'numeric' 
+                });
+                
+                document.getElementById('itineraryDates').textContent = 
+                    `${formattedStartDate} - ${formattedEndDate}`;
+                
+                generateDayBoxes(startDate, endDate);
+            }
+        };
+        
+        function generateDayBoxes(startDate, endDate) {
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            const container = document.getElementById('itineraryContainer');
+            
+            container.innerHTML = '';
+            
+            const dayDiff = Math.floor((end - start) / (1000 * 60 * 60 * 24)) + 1;
+            
+            for (let i = 0; i < dayDiff; i++) {
+                const currentDate = new Date(start);
+                currentDate.setDate(start.getDate() + i);
+                
+                const formattedDate = currentDate.toLocaleDateString('en-US', { 
+                    weekday: 'short',
+                    month: 'short', 
+                    day: 'numeric'
+                });
+                
+                const dayBox = document.createElement('div');
+                dayBox.className = 'day-box';
+                dayBox.innerHTML = `
+                    <h3>Day ${i + 1}: ${formattedDate}</h3>
+                    <div class="activities-container">
+                        <p class="empty-message">No activities planned</p>
+                    </div>
+                    <button class="add-button" onclick="goToSearch(${i + 1})">+</button>
+                `;
+                
+                container.appendChild(dayBox);
+            }
+        }
+        
+        function goToSearch(dayNumber) {
+            localStorage.setItem('currentEditDay', dayNumber);
+            window.location.href = 'search.html';
+        }
+      </script>
+	</body>
+</html>
