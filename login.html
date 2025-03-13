@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+        <link rel="stylesheet" href="css/login.css">
         <link rel="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-
-		
+        <title>Login - Travel Calgary</title>
 	</head>
 	<body>
       <header>
-        <div id="titleHeader">
-            <button id="headerItem"></button>
-            <h1 id="title"><a href="home.html">Travel Calgary</a></h1>
-            <a href="login.html"> </a>
+        <div id="titleHeaderr">
+            <button id="headerItem" onclick="toggleNavBar()">
+              <img src="images/bars-solid.svg" height="50" width="50" alt="Navigation">
+            </button>
+            <h1 id="titlee"><a href="home.html">Travel Calgary</a></h1>
         </div>
-        
         <hr>
       </header>
+
       <div id="mainPage">
-        
+        <div class="login-container">
+            <h2>Login</h2>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="login-button">Sign In</button>
+            </form>
+            <p class="signup-link">Don't have an account? <a href="#">Create one</a></p>
+        </div>
       </div>
 	</body>
 </html>
