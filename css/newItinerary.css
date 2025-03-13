@@ -1,0 +1,88 @@
+.itinerary-container {
+    background-color: white;
+    width: 800px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    margin-top: 50px;
+}
+
+.itinerary-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #333;
+    text-decoration: underline;
+}
+
+.itinerary-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 500;
+    font-size: 16px;
+    color: #333;
+}
+
+.form-group input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.title-group {
+    flex: 1;
+}
+
+.date-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 40%;
+}
+
+.notes-group textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    resize: vertical;
+    min-height: 150px;
+}
+
+.create-button {
+    background-color: rgb(235, 70, 79);
+    color: white;
+    font-size: 18px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 10px auto;
+    font-weight: 500;
+    align-self: center;
+    width: fit-content;
+}
+
+.create-button:hover {
+    background-color: rgb(248, 98, 105);
+}

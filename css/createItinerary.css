@@ -1,0 +1,121 @@
+/* Override styles from itinerary.css to match style.css */
+body {
+    background-color: rgb(242, 249, 255) !important;
+    text-align: inherit;
+}
+
+header {
+    background-color: transparent !important;
+    padding: 0 !important;
+}
+
+#titleHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: normal;
+    padding: 0;
+}
+
+#title {
+    width: 25%;
+    padding: 10px;
+    text-align: center;
+}
+
+#headerItem {
+    background-color: rgb(145, 176, 218);
+    width: 150px;
+}
+
+#headerItem:hover {
+    background-color: rgb(188, 206, 231);
+}
+
+/* Specific styles for createItinerary.html */
+.trip-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.trip-dates {
+    font-size: 18px;
+    color: #666;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/* Override the itinerary container to allow wrapping */
+.itinerary-scroll {
+    overflow-x: visible !important;
+    white-space: normal !important;
+    padding: 10px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.itinerary-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 20px !important;
+    padding: 20px !important;
+    width: 100% !important;
+    margin: auto !important;
+}
+
+/* Day box styling */
+.day-box {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.activities-container {
+    min-height: 100px;
+    padding: 10px;
+}
+
+.empty-message {
+    color: #999;
+    font-style: italic;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Make the itinerary container responsive */
+@media (max-width: 1200px) {
+    .itinerary-scroll {
+        width: 90%;
+    }
+    
+    .day-box {
+        width: 230px;
+    }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .itinerary-scroll {
+        width: 95%;
+    }
+    
+    .day-box {
+        width: 220px;
+    }
+    
+    .trip-title {
+        font-size: 28px;
+    }
+    
+    .trip-dates {
+        font-size: 16px;
+    }
+}
+
