@@ -83,12 +83,14 @@
             document.getElementById("fname").addEventListener("keypress", function(event) {
                 if (event.key === "Enter") {
                     event.preventDefault();
-                    window.location.href = "searchResult.html" + encodeURIComponent(this.value);
+                    window.location.href = "searchResult.html";
                 }
             });
         </script>
-        <button onclick="toggleFilters()" id="toggleFilter"> <img src="images/dropdownIcon.png" width="40" height="40"> </button>
-
+        <div id="optionButtons">
+            <button onclick="toggleFilters()" id="toggleFilter"> <img src="images/dropdownIcon.png" width="40" height="40"> </button>
+            <a><button>Map View</button>
+        </div>
       </div>
 
       <script>
