@@ -24,23 +24,27 @@
         </div>
       </header>
       <div id="mainPage">
-        <form action="searchResult.html" method="GET">
-            <input type="text" id="fname" name="fname" placeholder="Search">
-            <div id="filters">
-                <div id="filter">
-                    <label for="filterType">Type: </label>
-                    <select id="filterType" name="filterType">
-                        <option value="activity">Activity</option>
-                        <option value="food">Food</option>
-                        <option value="hotel">Hotel</option>
-                        <option value="park">Park</option>
-                        <option value="shopping">Shopping</option>
-                    </select>
+        <div class="search-container">
+            <form action="searchResult.html" method="GET">
+                <div class="search-row">
+                    <input type="text" id="fname" name="fname" placeholder="Search">
+                    <button type="button" class="map-view-button">Map View</button>
                 </div>
-                
-                <div id="filter" class="distanceBox">
-                    <p>Distance: <span id="distance">10</span>km</p>
-                    <input type="range" id="filterDistance" min="5" max="100" step="5" value="10">
+                <div id="filters">
+                    <div id="filter">
+                        <label for="filterType">Type: </label>
+                        <select id="filterType" name="filterType">
+                            <option value="activity">Activity</option>
+                            <option value="food">Food</option>
+                            <option value="hotel">Hotel</option>
+                            <option value="park">Park</option>
+                            <option value="shopping">Shopping</option>
+                        </select>
+                    </div>
+                    
+                    <div id="filter" class="distanceBox">
+                        <p>Distance: <span id="distance">10</span>km</p>
+                        <input type="range" id="filterDistance" min="5" max="100" step="5" value="10">
 
                         <script>
                             var slider = document.getElementById("filterDistance");
@@ -56,40 +60,41 @@
                         <p>Maximum Price: $<span id="price">10</span></p>
                         <input type="range" id="filterPrice" min="10" max="300" step="10" value="50">
 
-                    <script>
-                        var sliderPrice = document.getElementById("filterPrice");
-                        var price = document.getElementById("price");
-                        price.innerHTML = sliderPrice.value;
-    
-                        sliderPrice.oninput = function(){
-                            price.innerHTML = this.value;
-                        }
-                    </script>
+                        <script>
+                            var sliderPrice = document.getElementById("filterPrice");
+                            var price = document.getElementById("price");
+                            price.innerHTML = sliderPrice.value;
+        
+                            sliderPrice.oninput = function(){
+                                price.innerHTML = this.value;
+                            }
+                        </script>
+                    </div>
+                    <div id="filter">
+                        <label for="filterRating">Rating: </label>
+                        <select id="filterRating" name="filterRating">
+                            <option value="1">&#9733;</option>
+                            <option value="2">&#9733;&#9733;</option>
+                            <option value="3">&#9733;&#9733;&#9733;</option>
+                            <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
+                            <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                        </select>
+                    </div>
                 </div>
-                <div id="filter">
-                    <label for="filterRating">Rating: </label>
-                    <select id="filterRating" name="filterRating">
-                        <option value="1">&#9733;</option>
-                        <option value="2">&#9733;&#9733;</option>
-                        <option value="3">&#9733;&#9733;&#9733;</option>
-                        <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
-                        <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
-                    </select>
-                </div>
-                
+            </form>
+            <script>
+                document.getElementById("fname").addEventListener("keypress", function(event) {
+                    if (event.key === "Enter") {
+                        event.preventDefault();
+                        window.location.href = "searchResult.html";
+                    }
+                });
+            </script>
+            <div id="optionButtons">
+                <button onclick="toggleFilters()" id="arrowButton">
+                    <img id="filterIcon" src="images/dropdownIcon.png" width="40" height="40" alt="Toggle Filters">
+                </button>
             </div>
-        </form>
-        <script>
-            document.getElementById("fname").addEventListener("keypress", function(event) {
-                if (event.key === "Enter") {
-                    event.preventDefault();
-                    window.location.href = "searchResult.html";
-                }
-            });
-        </script>
-        <div id="optionButtons">
-            <button onclick="toggleFilters()" id="toggleFilter"> <img src="images/dropdownIcon.png" width="40" height="40"> </button>
-            <a><button>Map View</button>
         </div>
       </div>
 

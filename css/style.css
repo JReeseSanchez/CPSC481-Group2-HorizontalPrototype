@@ -54,11 +54,25 @@ button:hover {
 #titleHeader {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+}
+
+#titleHeader button:first-child {
+    position: relative;
+    left: 45px;
+}
+
+#titleHeader a:last-child #headerItem {
+    position: relative;
+    left: -45px;
+    top: 20px;
 }
 
 #headerItem {
     background-color: rgb(145, 176, 218);
     width: 150px;
+    
 }
 
 #headerItem:hover {
