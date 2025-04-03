@@ -7,6 +7,10 @@
     border: 1px solid #e0e0e0;
     margin-top: 50px;
 }
+h3{
+    text-align: center;
+    margin-bottom: 40px;
+}
 
 .itinerary-title {
     text-align: center;
