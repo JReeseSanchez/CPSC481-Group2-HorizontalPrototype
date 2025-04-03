@@ -111,6 +111,20 @@ button:hover {
     justify-content: center;
     align-items: center;
 }
+#searchContainer {
+    background-color: rgb(255, 237, 189);
+
+    width: 100%;
+    height: 450px;
+    margin: 0px;
+    padding: 15px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 img {
     object-fit: contain;
