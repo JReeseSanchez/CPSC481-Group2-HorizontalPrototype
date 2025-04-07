@@ -26,12 +26,14 @@
         </div>
       </header>
       <div id="mainPage">
-        <div id="searchContainer">
-            <img src="images/search.png" height="250" width="250" alt="Search Activities">
-            <a href="search.html"><button>Search</button></a>
+        <div id="itineraryContainer">
+
+            <a href="viewItinary.html"><button>Create Itineraries</button></a>
         </div>
         
         <div class="search-container">
+        <h1>Search Activities</h1>
+
             <form action="searchResult.html" method="GET">
                 <div class="search-row">
                     <input type="text" id="fname" name="fname" placeholder="Search">
@@ -103,20 +105,74 @@
                 </button>
             </div>
         </div>
+        <h1> Recommended Activities</h1>
+        <div id="container">
+            <div id="activity">
+                <img id="activityPhoto" src="images/Little-Caesars-Logo.png" width="40" height="40" alt="Little Caesars">
+                <h3>Little Caesars</h3>
+                <div id="textRow">
+                    <p>Resturant</p>
+                    <p>10km</p>
+                </div>
+                <div id="textRow">
+                    <p>Resturant</p>
+                    <p>10km</p>
+                </div>
+            </div>
+            <div id="activity">
+                <img id="activityPhoto" src="images/Little-Caesars-Logo.png" width="40" height="40" alt="Little Caesars">
+                <h3>Little Caesars</h3>
+                <div id="textRow">
+                    <p>Resturant</p>
+                    <p>10km</p>
+                </div>
+                <div id="textRow">
+                    <p>Resturant</p>
+                    <p>10km</p>
+                </div>
+            </div>
+            <div id="activity">
+                <img id="activityPhoto" src="images/Little-Caesars-Logo.png" width="40" height="40" alt="Little Caesars">
+                <h3>Little Caesars</h3>
+                <div id="textRow">
+                    <p>Resturant</p>
+                    <p>10km</p>
+                </div>
+                <div id="textRow">
+                    <p>Resturant</p>
+                    <p>10km</p>
+                </div>
+            </div>
+        </div>
       </div>
 
-      <script>
-        var x = document.getElementById("NavBar");
-        x.style.display = "none";
-
-        function toggleNavBar() {
+        <script>
             var x = document.getElementById("NavBar");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
+            x.style.display = "none";
+            var filter = document.getElementById("filters");
+            filter.style.display = "none";
+
+            function toggleNavBar() {
+                var x = document.getElementById("NavBar");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
             }
-        }
-      </script>
+
+            function toggleFilters() {
+                var filter = document.getElementById("filters");
+                var icon = document.getElementById("filterIcon");
+                
+                if (filter.style.display === "none") {
+                    filter.style.display = "flex";
+                    // Could rotate the icon here if you want to show it's expanded
+                } else {
+                    filter.style.display = "none";
+                    // Reset icon rotation
+                }
+            }
+        </script>
 	</body>
 </html>
