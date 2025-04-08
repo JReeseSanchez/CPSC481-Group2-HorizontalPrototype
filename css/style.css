@@ -27,6 +27,10 @@ h2 {
     margin: 5px;
 }
 
+h3{
+    font-size: 25px;
+}
+
 a {
     color: inherit; 
     text-decoration: none; 
@@ -124,19 +128,13 @@ button:hover {
     align-items: center;
 }
 
-
-
-#itineraryContainer {
-    background-color: rgb(255, 237, 189);
-
-    width: 100%;
-    height: 500px;
-    margin: 0px;
-
+#textRow {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: 5px;
+    height: 30px;
+}
+#textRow > p {
+    padding:  2px 40px;
 }
 
 img {
