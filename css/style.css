@@ -64,14 +64,14 @@ button:hover {
 #titleHeader {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     position: relative;
     background-color: rgb(42, 142, 255);
 }
 
 #titleHeader > * {
     width: 20%;
-    align-items: flex-start;
+    align-items: center;
 }
 
 #titleHeader > div {
@@ -92,14 +92,12 @@ button:hover {
     top: 20px;
 }
 
-#headerItem {
-    background-color: rgb(145, 176, 218);
-    width: 150px;
-    
+#blue {
+    background-color: rgb(145, 176, 218); 
 }
 
-#headerItem:hover {
-    background-color: rgb(188, 206, 231);
+#blue:hover {
+    background-color: rgb(188, 206, 231); 
 }
 
 #title {
