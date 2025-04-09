@@ -51,7 +51,7 @@ button {
 }
 
 button:hover {
-    background-color: rgb(248, 98, 105);
+    background-color: rgb(255, 250, 164);
 }
 
 #mainPage{
@@ -67,6 +67,18 @@ button:hover {
     align-items: flex-start;
     position: relative;
     background-color: rgb(42, 142, 255);
+}
+
+#titleHeader > * {
+    width: 20%;
+    align-items: flex-start;
+}
+
+#titleHeader > div {
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
 }
 
 #titleHeader button:first-child {
