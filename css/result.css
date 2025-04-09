@@ -6,24 +6,6 @@
     width: 60%;
 }
 
-#result {
-    display: flex;
-    background-color: rgb(217, 229, 245);
-    padding: 10px;
-    margin: 10px;
-    width: 100%;
-    text-align: left;
-}
-
-#result > img{
-    margin: 15px;
-    border-radius: 10px;
-}
-
-#result:hover {
-    background-color: rgb(223, 234, 248);
-}
-
 #resultInfo{
     display:flex;
     flex-direction: column;
@@ -41,4 +23,20 @@
 
 #resultDetails > p {
     margin: 10px 50px
+}
+
+.result-card {
+    display: flex;
+    background-color: rgb(217, 229, 245);
+    padding: 10px;
+    margin: 15px 0;
+    border-radius: 12px;
+    text-decoration: none;
+    color: black;
+    align-items: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.result-card:hover {
+    background-color: rgb(200, 220, 240);
 }

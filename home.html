@@ -13,7 +13,7 @@
         <div id="titleHeader">
             <div>
                 <a href="search.html"><button>Search</button></a>
-                <a href="listItinary.html"><button>List Itineraries</button></a>
+                <a href="listItinerary.html"><button>List Itineraries</button></a>
             </div>
             <h1 id="title"><a href="home.html">Travel Calgary</a></h1>
             <a href="login.html"><button id="headerItem">Sign In</button></a>
@@ -22,14 +22,14 @@
         <div id="NavBar">
             <a href="home.html"><button>Home</button></a>
             <a href="search.html"><button>Search</button></a>
-            <a href="listItinary.html"><button>List Itineraries</button></a>
+            <a href="listItinerary.html"><button>List Itineraries</button></a>
         </div>
       </header>
       <div id="mainPage">
         <div id="itineraryContainer">
             <h2>Plan your next trip here</h2>
             <p>Click the button to begin creating the itinerary to you next trip</p>
-            <a href="viewItinary.html"><button>Create Itineraries</button></a>
+            <a href="newItinarary.html"><button>Create Itineraries</button></a>
         </div>
         
         <div class="search-container">
@@ -104,6 +104,7 @@
                 <button onclick="toggleFilters()" id="arrowButton">
                     <img id="filterIcon" src="images/dropdownIcon.png" width="40" height="40" alt="Toggle Filters">
                 </button>
+                <p class="filter-label">Filters</p>
             </div>
         </div>
 
@@ -202,7 +203,7 @@
             x.style.display = "none";
             var filter = document.getElementById("filters");
             filter.style.display = "none";
-
+            var filterIcon = document.getElementById("filterIcon");
             function toggleNavBar() {
                 var x = document.getElementById("NavBar");
                 if (x.style.display === "none") {
