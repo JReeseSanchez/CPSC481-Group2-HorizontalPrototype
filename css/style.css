@@ -69,6 +69,13 @@ button:hover {
     background-color: rgb(42, 142, 255);
 }
 
+#title {
+    width: 25%;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
 #titleHeader > * {
     width: 20%;
     align-items: center;
@@ -85,15 +92,15 @@ button:hover {
 }
 
 #titleHeader a:last-child #headerItem {
-    
+
 }
 
-#blue {
-    background-color: rgb(145, 176, 218); 
+#navButton {
+    background-color: rgb(255, 255, 255); 
 }
 
-#blue:hover {
-    background-color: rgb(188, 206, 231); 
+#navButton:hover {
+    background-color: rgb(218, 251, 255); 
 }
 
 #title {
