@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Activity</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/newactivity.css">
+</head>
+<body>
+    <header>
+        <div id="titleHeader">
+            <button id="headerItem" onclick="toggleNavBar()"><img src="images/bars-solid.svg" height="50" width="50" alt="Navigation Bar"></button>
+            <h1 id="title"><a href="home.html">Travel Calgary</a></h1>
+            <a href="login.html"><button id="headerItem">Sign In</button></a>
+        </div>
+
+        <hr>
+
+        <div id="NavBar">
+            <a href="home.html"><button>Home</button></a>
+            <a href="search.html"><button>Search</button></a>
+            <a href="listItinerary.html"><button>List Itineraries</button></a>
+        </div>
+    </header>
+
+    <div id="mainPage">
+        <div id="activityContainer">
+            <h2><u>New Activity</u></h2>
+
+            <p class="subtitle"></p>
+
+            <form id="activityForm">
+                <div class="formRow">
+                    <label for="itinerary">Chose Itinerary</label>
+                    <input type="text" id="itinerary" name="itinerary" placeholder="Summer Trip">
+                </div>
+
+                <div class="formRow">
+                    <label for="day">Select Day</label>
+                    <input type="date" id="day" name="day" value="2025-06-29">
+                </div>
+
+                <div class="formRow">
+                    <label for="start">Start Time</label>
+                    <input type="time" id="start" name="start" value="13:00">
+                </div>
+
+                <div class="formRow">
+                    <label for="end">End Time</label>
+                    <input type="time" id="end" name="end" value="15:00">
+                </div>
+
+                <button type="submit">+ Create</button>
+            </form>
+        </div>
+    </div>
+
+    
+</html>

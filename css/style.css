@@ -140,3 +140,10 @@ button:hover {
 img {
     object-fit: contain;
 }
+
+.filter-label {
+    font-size: 14px;
+    margin-top: 4px;
+    color: #444;
+    font-weight: 500;
+}
