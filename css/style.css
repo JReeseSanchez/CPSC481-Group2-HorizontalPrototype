@@ -140,6 +140,11 @@ button:hover {
     align-items: center;
 }
 
+#activity:hover{
+    background-color: rgb(231, 244, 255);
+
+}
+
 #textRow {
     display: flex;
     padding: 5px;
