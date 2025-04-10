@@ -63,18 +63,31 @@ header {
 
 /* Scrollable Itinerary Section */
 .itinerary-scroll {
-    overflow-x: auto; /* Enables horizontal scrolling */
-    white-space: nowrap;
-    padding: 10px;
+    width: calc(4 * 250px + 3 * 60px); /*  boxes + 3 gaps */
+    margin: 0 auto;
+    overflow-x: hidden; /* hids horizontal scrolling */
+    scroll-behavior: smooth ;
+    padding: 20px 0;
+
 }
+
+/* ADDED TO HIDE SCROLLBAR */
+.itinerary-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.itinerary-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 
 .itinerary-container {
     display: flex;
     gap: 20px;
-    padding: 20px;
     flex-wrap: nowrap; /* Ensures items stay in one row */
-    width: max-content; /* Expands container as needed */
-    margin: auto;
+    transition: transform 0.3s ease; 
+    width: max-content; /* 4 boxes + 3 gaps */
 }
 
 /* Itinerary Card Style */
@@ -152,3 +165,39 @@ header {
 .add-button:hover {
     background-color: rgb(248, 98, 105); /* Slightly darker blue */
 }
+
+.arrows-wrapper {
+    position: relative;
+    max-width: 1180px; /* Matches your 4*250 + 3*60 calculation */
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Add styles for the left and right arrow buttons */
+.arrow-button {
+    background-color: #b2c4e9;
+    color: rgb(19, 18, 18);
+    border: none;
+    padding: 12px 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+
+}
+.arrow-left {
+    left: -15px;
+}
+
+.arrow-right {
+    right: -15px;
+}
+
+/* Disabled state */
+.arrow-button.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
