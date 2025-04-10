@@ -78,18 +78,14 @@ button:hover {
     justify-content: center;
     align-items: center;
     position: relative;
-    
 }
 
-#titleHeader button:first-child {
-    position: relative;
-    left: 45px;
+#titleHeader button:last-child {
+
 }
 
 #titleHeader a:last-child #headerItem {
-    position: relative;
-    left: -45px;
-    top: 20px;
+    
 }
 
 #blue {
