@@ -22,33 +22,35 @@
             <a href="listItinary.html"><button>List Itineraries</button></a>
         </div>
       </header>
-      <div id="mainPage">
+      <div id="mainPage" class="main-layout">
+        <div class="back-button-container">
+            <a href="listItinary.html" class="back-button">&#8592; Go Back</a>
+        </div>
         <div class="itinerary-container">
             <h2 class="itinerary-title">New Itinerary</h2>
-            
             <form id="itineraryForm" class="itinerary-form" onsubmit="saveItineraryData(event)">
                 <div class="form-row">
                     <div class="form-group title-group">
                         <label for="itinerary-title">Title</label>
-                        <input type="text" id="itinerary-title" name="itinerary-title" required>
+                        <input type="text" id="itinerary-title" name="itinerary-title" required placeholder="Trip to Calgary">
                     </div>
                     
                     <div class="date-container">
                         <div class="form-group">
                             <label for="start-date">Start</label>
-                            <input type="date" id="start-date" name="start-date" required>
+                            <input type="text" id="end-date" name="end-date" required placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')">
                         </div>
                         
                         <div class="form-group">
                             <label for="end-date">End</label>
-                            <input type="date" id="end-date" name="end-date" required>
+                            <input type="text" id="end-date" name="end-date" required placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')">
                         </div>
                     </div>
                 </div>
                 
                 <div class="form-group notes-group">
                     <label for="notes">Notes</label>
-                    <textarea id="notes" name="notes" rows="6"></textarea>
+                    <textarea id="notes" name="notes" rows="6" placeholder="In a galaxy far far away..."></textarea>
                 </div>
                 
                 <button type="submit" class="create-button">+ Create</button>
@@ -86,10 +88,6 @@
             
             // Redirect to createItinerary.html
             window.location.href = 'createItinerary.html';
-        }
-      </script>
-	</body>
-</html>
         }
       </script>
 	</body>

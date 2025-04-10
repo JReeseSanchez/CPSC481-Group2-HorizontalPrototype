@@ -5,9 +5,27 @@
     align-items: center;
 }
 
+.mainTitle {
+    font-size: 40px;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    color: #333;
+    text-decoration: underline;
+}
+
+.addItinerary {
+    cursor: pointer;
+    width: 100%;
+}
+
+.addItinerary:hover {
+    background-color: rgb(255, 225, 54);
+}
+
 #itineraryList {
     padding:  30px 20%;
-    margin: 20px;
+    margin: 0px;
+    margin-bottom: 0px;
     width: 60%;
 }
 
@@ -26,6 +44,8 @@
     margin: 10px;
     width: 100%;
     text-align: left;
+    cursor: pointer;
+
 }
 
 #result > img{

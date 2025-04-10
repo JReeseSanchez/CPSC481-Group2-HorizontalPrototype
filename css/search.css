@@ -126,3 +126,22 @@ form > select {
     margin-top: 10px;
 }
 
+#goBackButton {
+        margin-top: 30px;
+        padding: 15px 20px;
+        font-size: 16px;
+        color: #ffffff;
+        background-color: #007BFF;
+        text-decoration: none;
+        border-radius: 10px;
+        font-family: 'Inter', sans-serif;
+        display: inline-block;
+        height: fit-content;
+        line-height: 1;
+}
+
+#goBackButton:hover {
+    background-color: #3f9cff;
+    cursor: pointer;
+}
+
