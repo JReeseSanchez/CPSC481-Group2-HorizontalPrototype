@@ -10,17 +10,12 @@
 	<body>
       <header>
         <div id="titleHeader">
-            <button id="headerItem" onclick="toggleNavBar()"><img src="images/bars-solid.svg" height="50" width="50" alt="Navigation Bar"></button>
-            <h1 id="title"><a href="home.html">Travel Calgary</a></h1>
-            <a href="login.html"><button id="headerItem">Sign In</button></a>
-        </div>
-
-        <hr>
-
-        <div id="NavBar">
-            <a href="home.html"><button>Home</button></a>
-            <a href="search.html"><button>Search</button></a>
-            <a href="listItinerary.html"><button>List Itineraries</button></a>
+          <div>
+              <a href="search.html"><button id="navButton">Search</button></a>
+              <a href="listItinerary.html"><button id="navButton">List Itineraries</button></a>
+          </div>
+          <h1 id="title"><a href="home.html">Travel Calgary</a></h1>
+          <a href="login.html"><button id="navButton">Sign In</button></a>
         </div>
       </header>
       <div id="mainPage">
@@ -48,19 +43,5 @@
           </a>
         </div>
       </div>
-
-      <script>
-        var x = document.getElementById("NavBar");
-        x.style.display = "none";
-
-        function toggleNavBar() {
-            var x = document.getElementById("NavBar");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-      </script>
 	</body>
 </html>

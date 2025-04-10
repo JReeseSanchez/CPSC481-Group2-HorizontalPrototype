@@ -11,17 +11,12 @@
 	<body>
       <header>
         <div id="titleHeader">
-            <button id="headerItem" onclick="toggleNavBar()"><img src="images/bars-solid.svg" height="50" width="50" alt="Navigation Bar"></button>
+            <div>
+                <a href="search.html"><button id="navButton">Search</button></a>
+                <a href="listItinerary.html"><button id="navButton">List Itineraries</button></a>
+            </div>
             <h1 id="title"><a href="home.html">Travel Calgary</a></h1>
-            <a href="login.html"><button id="headerItem">Sign In</button></a>
-        </div>
-
-        <hr>
-
-        <div id="NavBar">
-            <a href="home.html"><button>Home</button></a>
-            <a href="search.html"><button>Search</button></a>
-            <a href="listItinerary.html"><button>List Itineraries</button></a>
+            <a href="login.html"><button id="navButton">Sign In</button></a>
         </div>
       </header>
       <div id="mainPage">
@@ -99,20 +94,92 @@
             </div>
         </div>
 
-        
-<div id="results">
-    <h2>4 Results found</h2>
+        <div id="results">
+            <h2> Recommended Activities</h2>
+            <div id="container">
+                <div id="activity">
+                    <img id="activityPhoto" src="images/Little-Caesars-Logo.png" width="250" height="250" alt="Little Caesars">
+                    <h3>Little Caesars</h3>
+                    <div id="textRow">
+                        <p>Resturant</p>
+                        <p>$10-$20</p>
+                    </div>
+                    <div id="textRow">
+                        <p>10km</p>
+                        <p>4/5 &#9733;</p>
+                    </div>
+                    <a href=""><button>Add to Itinerary</button></a>
+                </div>
+                <div id="activity">
+                    <img id="activityPhoto" src="images/OlympicOval.jpg" width="250" height="250" alt="Little Caesars">
+                    <h3>Skating at the Olympic Oval</h3>
+                    <div id="textRow">
+                        <p>Activity</p>
+                        <p>$10</p>
+                    </div>
+                    <div id="textRow">
+                        <p>30km</p>
+                        <p>4/5 &#9733;</p>
+                    </div>
+                    <a href=""><button>Add to Itinerary</button></a>
 
-    <a class="result-card" href="newActivity.html?name=Seniore%27s%20Pizza">
-        <img width="100" height="100" src="https://static.wixstatic.com/media/4c3669_68c1f8ee91424f26978c7ef2726bfb9f~mv2.png">
-        <div id="resultInfo">
-            <h2>Seniore's Pizza</h2>
-            <div id="resultDetails">
-                <p>Restaurant</p>
-                <p>2.4km</p>
-                <p>$10 - $20</p>
-                <p>4/5&#9733;</p>
+                </div>
+                <div id="activity">
+                    <img id="activityPhoto" src="images/Pizza73Logo.svg.png" width="250" height="250" alt="Little Caesars">
+                    <h3>Little Caesars</h3>
+                    <div id="textRow">
+                        <p>Resturant</p>
+                        <p>$10-$20</p>
+                    </div>
+                    <div id="textRow">
+                        <p>10km</p>
+                        <p>2/5 &#9733;</p>
+                    </div>
+                    <a href=""><button>Add to Itinerary</button></a>
+                </div>
             </div>
+            <div id="container">
+                <div id="activity">
+                    <img id="activityPhoto" src="images/Little-Caesars-Logo.png" width="250" height="250" alt="Little Caesars">
+                    <h3>Little Caesars</h3>
+                    <div id="textRow">
+                        <p>Resturant</p>
+                        <p>$10-$20</p>
+                    </div>
+                    <div id="textRow">
+                        <p>10km</p>
+                        <p>4/5 &#9733;</p>
+                    </div>
+                    <a href=""><button>Add to Itinerary</button></a>
+                </div>
+                <div id="activity">
+                    <img id="activityPhoto" src="images/OlympicOval.jpg" width="250" height="250" alt="Little Caesars">
+                    <h3>Skating at the Olympic Oval</h3>
+                    <div id="textRow">
+                        <p>Activity</p>
+                        <p>$10</p>
+                    </div>
+                    <div id="textRow">
+                        <p>30km</p>
+                        <p>4/5 &#9733;</p>
+                    </div>
+                    <a href=""><button>Add to Itinerary</button></a>
+
+                </div>
+                <div id="activity">
+                    <img id="activityPhoto" src="images/Pizza73Logo.svg.png" width="250" height="250" alt="Little Caesars">
+                    <h3>Little Caesars</h3>
+                    <div id="textRow">
+                        <p>Resturant</p>
+                        <p>$10-$20</p>
+                    </div>
+                    <div id="textRow">
+                        <p>10km</p>
+                        <p>2/5 &#9733;</p>
+                    </div>
+                    <a href=""><button>Add to Itinerary</button></a>
+                </div>
+            </div>  
         </div>
     </a>
 
@@ -157,19 +224,8 @@
 
 </div>
       <script>
-        var x = document.getElementById("NavBar");
-        x.style.display = "none";
         var filter = document.getElementById("filters");
         filter.style.display = "none";
-
-        function toggleNavBar() {
-            var x = document.getElementById("NavBar");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
 
         function toggleFilters() {
             var filter = document.getElementById("filters");

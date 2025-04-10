@@ -47,11 +47,10 @@ button {
     padding: 15px;
     margin: 15px;
     border-radius: 20px;
-    box-shadow: 2px 3px 3px #8b8b8b;
 }
 
 button:hover {
-    background-color: rgb(248, 98, 105);
+    background-color: rgb(255, 250, 164);
 }
 
 #mainPage{
@@ -64,30 +63,43 @@ button:hover {
 #titleHeader {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     position: relative;
     background-color: rgb(42, 142, 255);
 }
 
-#titleHeader button:first-child {
+#title {
+    width: 25%;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+#titleHeader > * {
+    width: 20%;
+    align-items: center;
+}
+
+#titleHeader > div {
+    justify-content: center;
+    align-items: center;
     position: relative;
-    left: 45px;
+}
+
+#titleHeader button:last-child {
+
 }
 
 #titleHeader a:last-child #headerItem {
-    position: relative;
-    left: -45px;
-    top: 20px;
+
 }
 
-#headerItem {
-    background-color: rgb(145, 176, 218);
-    width: 150px;
-    
+#navButton {
+    background-color: rgb(255, 255, 255); 
 }
 
-#headerItem:hover {
-    background-color: rgb(188, 206, 231);
+#navButton:hover {
+    background-color: rgb(218, 234, 255); 
 }
 
 #title {
@@ -134,7 +146,7 @@ button:hover {
     height: 30px;
 }
 #textRow > p {
-    padding:  2px 40px;
+    padding:  2px 25px;
 }
 
 img {
