@@ -1,15 +1,4 @@
-#recommendedBox {
-    background-color:  rgb(255, 237, 189);
 
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
 #itineraryContainer {
     background-image: url('images/calgarySkyline.jpg');
