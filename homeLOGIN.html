@@ -2,10 +2,8 @@
 <html lang="en">
 	<head>
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/result.css">
-
         <link rel="stylesheet" href="css/search.css">
-
+        <link rel="stylesheet" href="css/home.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
 		
@@ -17,16 +15,30 @@
                 <a href="search.html"><button id="navButton">Search</button></a>
                 <a href="listItinerary.html"><button id="navButton">List Itineraries</button></a>
             </div>
-            <h1 id="title"><a href="home.html">Travel Calgary</a></h1>
-            <a href="login.html"><button id="navButton">Sign In</button></a>
+            <h1 id="title"><a href="homeLOGIN.html">Travel Calgary</a></h1>
+            <div id="headerRight">
+                <img id="profilePicture" src="images/defaultUser.jpg" width="75" height="75" alt="Profile ">
+                <div id="userInfo">
+                    <h4>Daisy Sandwich</h4>
+                    <a href="home.html"><button id="signoutButton">Sign Out</button></a>
+                </div>
+            </div>
         </div>
       </header>
       <div id="mainPage">
+        <div id="itineraryContainer">
+            <h2>Plan your next trip here</h2>
+            <p>Click the button to begin creating the itinerary to you next trip</p>
+            <a href="newItinarary.html"><button>Create Itineraries</button></a>
+        </div>
+        
         <div class="search-container">
+        <h2>Search Activities</h2>
+        <p>Find activities to do here</p>
+
             <form action="searchResult.html" method="GET">
                 <div class="search-row">
                     <input type="text" id="fname" name="fname" placeholder="Search">
-                    <button type="button" class="map-view-button">Show Results On Map</button>
                 </div>
                 <div id="filters">
                     <div id="filter">
@@ -80,6 +92,7 @@
                     </div>
                     <input type="reset">
                 </div>
+                
             </form>
             <script>
                 document.getElementById("fname").addEventListener("keypress", function(event) {
@@ -111,8 +124,7 @@
                         <p>10km</p>
                         <p>4/5 &#9733;</p>
                     </div>
-                    <a href="newActivity.html"><button>Add to Itinerary</button></a>
-
+                    <a href=""><button>Add to Itinerary</button></a>
                 </div>
                 <div id="activity">
                     <img id="activityPhoto" src="images/OlympicOval.jpg" width="250" height="250" alt="Little Caesars">
@@ -125,8 +137,7 @@
                         <p>30km</p>
                         <p>4/5 &#9733;</p>
                     </div>
-                    <a href="newActivity.html"><button>Add to Itinerary</button></a>
-
+                    <a href=""><button>Add to Itinerary</button></a>
 
                 </div>
                 <div id="activity">
@@ -140,8 +151,7 @@
                         <p>10km</p>
                         <p>2/5 &#9733;</p>
                     </div>
-                    <a href="newActivity.html"><button>Add to Itinerary</button></a>
-
+                    <a href=""><button>Add to Itinerary</button></a>
                 </div>
             </div>
             <div id="container">
@@ -156,8 +166,7 @@
                         <p>10km</p>
                         <p>4/5 &#9733;</p>
                     </div>
-                    <a href="newActivity.html"><button>Add to Itinerary</button></a>
-
+                    <a href=""><button>Add to Itinerary</button></a>
                 </div>
                 <div id="activity">
                     <img id="activityPhoto" src="images/OlympicOval.jpg" width="250" height="250" alt="Little Caesars">
@@ -170,8 +179,7 @@
                         <p>30km</p>
                         <p>4/5 &#9733;</p>
                     </div>
-                    <a href="newActivity.html"><button>Add to Itinerary</button></a>
-
+                    <a href=""><button>Add to Itinerary</button></a>
 
                 </div>
                 <div id="activity">
@@ -185,49 +193,29 @@
                         <p>10km</p>
                         <p>2/5 &#9733;</p>
                     </div>
-                    <a href="newActivity.html"><button>Add to Itinerary</button></a>
-
+                    <a href=""><button>Add to Itinerary</button></a>
                 </div>
             </div>  
         </div>
-    </a>
-</div>
 
-</div>
-        <footer>
-            <div id="footer">
-                <p>&copy; 2023 Travel Calgary. All rights reserved.</p>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-            </div>
+      </div>
 
-      <script>
-        var filter = document.getElementById("filters");
-        filter.style.display = "none";
-
-        function toggleFilters() {
+        <script>
             var filter = document.getElementById("filters");
-            var icon = document.getElementById("filterIcon");
-            
-            if (filter.style.display === "none") {
-                filter.style.display = "flex";
-                // Could rotate the icon here if you want to show it's expanded
-            } else {
-                filter.style.display = "none";
-                // Reset icon rotation
+            filter.style.display = "none";
+
+            function toggleFilters() {
+                var filter = document.getElementById("filters");
+                var icon = document.getElementById("filterIcon");
+                
+                if (filter.style.display === "none") {
+                    filter.style.display = "flex";
+                    // Could rotate the icon here if you want to show it's expanded
+                } else {
+                    filter.style.display = "none";
+                    // Reset icon rotation
+                }
             }
-        }
-      </script>
-      <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const day = urlParams.get("day");
-      
-        document.querySelectorAll("a[href*='newActivity.html']").forEach(link => {
-          if (!link.href.includes("day=")) {
-            link.href += (link.href.includes("?") ? "&" : "?") + `day=${day}`;
-          }
-        });
-      </script>
-      
+        </script>
 	</body>
 </html>
