@@ -108,7 +108,8 @@
                         <p>10km</p>
                         <p>4/5 &#9733;</p>
                     </div>
-                    <a href=""><button>Add to Itinerary</button></a>
+                    <a href="newActivity.html"><button>Add to Itinerary</button></a>
+
                 </div>
                 <div id="activity">
                     <img id="activityPhoto" src="images/OlympicOval.jpg" width="250" height="250" alt="Little Caesars">
@@ -121,7 +122,8 @@
                         <p>30km</p>
                         <p>4/5 &#9733;</p>
                     </div>
-                    <a href=""><button>Add to Itinerary</button></a>
+                    <a href="newActivity.html"><button>Add to Itinerary</button></a>
+
 
                 </div>
                 <div id="activity">
@@ -135,7 +137,8 @@
                         <p>10km</p>
                         <p>2/5 &#9733;</p>
                     </div>
-                    <a href=""><button>Add to Itinerary</button></a>
+                    <a href="newActivity.html"><button>Add to Itinerary</button></a>
+
                 </div>
             </div>
             <div id="container">
@@ -150,7 +153,8 @@
                         <p>10km</p>
                         <p>4/5 &#9733;</p>
                     </div>
-                    <a href=""><button>Add to Itinerary</button></a>
+                    <a href="newActivity.html"><button>Add to Itinerary</button></a>
+
                 </div>
                 <div id="activity">
                     <img id="activityPhoto" src="images/OlympicOval.jpg" width="250" height="250" alt="Little Caesars">
@@ -163,7 +167,7 @@
                         <p>30km</p>
                         <p>4/5 &#9733;</p>
                     </div>
-                    <a href=""><button>Add to Itinerary</button></a>
+                    <a href="newActivity.html"><button>Add to Itinerary</button></a>
 
                 </div>
                 <div id="activity">
@@ -177,13 +181,14 @@
                         <p>10km</p>
                         <p>2/5 &#9733;</p>
                     </div>
-                    <a href=""><button>Add to Itinerary</button></a>
+                    <a href="newActivity.html"><button>Add to Itinerary</button></a>
+
                 </div>
             </div>  
         </div>
     </a>
 
-    <a class="result-card" href="newActivity.html?name=Pizza%20Planet">
+    <a class="result-card" href="newActivity.html?name=Pizza%20Planet&day=1">
         <img width="100" height="100" src="images/PizzaPlanetLogo.webp">
         <div id="resultInfo">
             <h2>Pizza Planet</h2>
@@ -240,5 +245,16 @@
             }
         }
       </script>
+      <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const day = urlParams.get("day");
+      
+        document.querySelectorAll("a[href*='newActivity.html']").forEach(link => {
+          if (!link.href.includes("day=")) {
+            link.href += (link.href.includes("?") ? "&" : "?") + `day=${day}`;
+          }
+        });
+      </script>
+      
 	</body>
 </html>
