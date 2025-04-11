@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Day Detail - Travel Calgary</title>
+  <link rel="stylesheet" href="css/itinerary.css">
+  <style>
+    body {
+      background-color: #f2f9ff;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+    }
+
+    #NavBar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      background-color: #ddd;
+      padding: 10px;
+    }
+
+    .back-button {
+      margin: 20px;
+      font-size: 16px;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .content-layout {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 30px;
+      flex-wrap: wrap;
+    }
+
+    .left-panel {
+      width: 300px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .right-panel {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .trip-title {
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .trip-dates {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .calendar-view {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .calendar-view .time {
+      display: flex;
+      flex-direction: column;
+      background: #f5f5f5;
+    }
+
+    .calendar-view .time div,
+    .calendar-view .activity div {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .calendar-view .activity {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .activity-box {
+      font-weight: bold;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 5px 0;
+      text-align: center;
+    }
+
+    .red { background-color: #e74c3c; }
+    .blue { background-color: #3498db; }
+    .green { background-color: #2ecc71; }
+
+    ul {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div id="NavBar">
+    <a href="home.html"><button>Home</button></a>
+    <a href="clickonitinary.html"><button>Back to Itinerary</button></a>
+  </div>
+</header>
+
+
+<div class="content-layout">
+  <!-- Left Panel -->
+  <div class="left-panel">
+    <h2 class="trip-title" id="day-title">Loading...</h2>
+    <p class="trip-dates" id="stay-info"></p>
+    <ul id="activity-list"></ul>
+  </div>
+
+  <!-- Right Panel -->
+  <div class="right-panel">
+    <h3 style="text-align:center;">Calendar View</h3>
+    <div class="calendar-view">
+      <div class="time" id="time-col"></div>
+      <div class="activity" id="activity-col"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const itineraryData = {
+    1: {
+      date: "Tuesday, June 17",
+      stay: "Fairmont Hotel",
+      schedule: [
+        { time: "10:00 AM", activity: "Prince Edward Island", color: "red" },
+        { time: "2:30 PM", activity: "17th Ave", color: "blue" },
+        { time: "5:30 PM", activity: "Mr. Puffs", color: "green" }
+      ]
+    },
+    2: {
+      date: "Wednesday, June 18",
+      stay: "Fairmont Hotel",
+      schedule: [
+        { time: "9:00 AM", activity: "Breakfast and get ready", color: "red" },
+        { time: "9:00 AM - 12:00 PM", activity: "Explore Downtown", color: "blue" },
+        { time: "12:00 PM - 1:00 PM", activity: "Lunch at Jump Room", color: "green" },
+        { time: "1:00 PM - 1:30 PM", activity: "C-Train to Chinook Mall", color: "blue" },
+        { time: "1:30 PM - 6:00 PM", activity: "Shop and Dine", color: "green" },
+        { time: "6:00 PM - 6:30 PM", activity: "C-Train back to Hotel", color: "red" }
+      ]
+    },
+    3: {
+      date: "Thursday, June 19",
+      stay: "Fairmont Hotel",
+      schedule: [
+        { time: "8:00 AM", activity: "Go to Banff", color: "blue" },
+        { time: "10:00 AM", activity: "Visit Lake Louise", color: "green" },
+        { time: "1:00 PM", activity: "Long Activity Name", color: "red" }
+      ]
+    }
+  };
+
+  const dayParam = new URLSearchParams(window.location.search).get('day');
+  const data = itineraryData[dayParam];
+
+  if (data) {
+    document.getElementById('day-title').textContent = data.date;
+    document.getElementById('stay-info').innerHTML = `<strong>Stay:</strong> ${data.stay}`;
+
+    const activityList = document.getElementById('activity-list');
+    const timeCol = document.getElementById('time-col');
+    const activityCol = document.getElementById('activity-col');
+
+    data.schedule.forEach(item => {
+      // Left list
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>${item.time}</strong> - ${item.activity}`;
+      activityList.appendChild(li);
+
+      // Calendar View
+      timeCol.innerHTML += `<div>${item.time}</div>`;
+      activityCol.innerHTML += `<div class="activity-box ${item.color}">${item.activity}</div>`;
+    });
+  } else {
+    document.getElementById('day-title').textContent = "Itinerary Not Found";
+  }
+</script>
+
+</body>
+</html>

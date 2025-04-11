@@ -62,10 +62,36 @@ header {
 }
 
 /* Scrollable Itinerary Section */
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1100px;
+    margin: auto;
+}
+
 .itinerary-scroll {
-    overflow-x: auto; /* Enables horizontal scrolling */
-    white-space: nowrap;
-    padding: 10px;
+    overflow-x: auto; /* ✅ allow scroll both ways */
+    scroll-behavior: smooth;
+    flex-grow: 1;
+    width: 100%;
+}
+
+
+.arrow-button {
+    background-color: orange;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    margin: 0 5px;
+}
+
+.arrow-button:hover {
+    background-color: #ffaa00;
 }
 
 .itinerary-container {
@@ -76,6 +102,19 @@ header {
     width: max-content; /* Expands container as needed */
     margin: auto;
 }
+.day-box h3 a.day-link {
+    text-decoration: none;
+    color: black;
+    display: block;
+    background-color: #b2c4e9;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.day-box h3 a.day-link:hover {
+    background-color: #a3b6dd;
+}
+
 
 /* Itinerary Card Style */
 .day-box {

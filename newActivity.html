@@ -19,8 +19,18 @@
         </div>
     </header>
 
-    <div id="mainPage">
+    <div id="mainPage" style="display: flex; justify-content: center; gap: 30px; margin-top: 40px;">
+    
+        <!-- Static Itinerary Preview -->
+        <div id="staticItinerary">
+            <h3 id="previewTitle">Itinerary Preview</h3>
+            <p id="previewStay"></p>
+            <ul id="previewActivities" style="text-align: left;"></ul>
+        </div>
+        
+        <!-- Activity Form -->
         <div id="activityContainer">
+    
             <h2><u>New Activity</u></h2>
 
             <p class="subtitle"></p>
@@ -50,6 +60,40 @@
             </form>
         </div>
     </div>
-
+    <script>
+        const tripDays = {
+          1: {
+            title: "Tuesday, June 17",
+            stay: "Fairmont Hotel",
+            activities: ["Prince Edward Island", "17th Ave", "Mr. Puffs"]
+          },
+          2: {
+            title: "Wednesday, June 18",
+            stay: "Fairmont Hotel",
+            activities: ["Breakfast and get ready", "Explore Downtown", "Lunch at Jump Room", "C-Train to Chinook Mall", "Shop and Dine", "C-Train back to Hotel"]
+          },
+          3: {
+            title: "Thursday, June 19",
+            stay: "Fairmont Hotel",
+            activities: ["Go to Banff", "Visit Lake Louise", "Long Activity Name"]
+          }
+        };
+      
+        const params = new URLSearchParams(window.location.search);
+        const day = params.get("day");
+        const dayData = tripDays[day];
+      
+        if (dayData) {
+          document.getElementById("previewTitle").textContent = dayData.title;
+          document.getElementById("previewStay").textContent = `Stay: ${dayData.stay}`;
+          const list = document.getElementById("previewActivities");
+          dayData.activities.forEach(item => {
+            const li = document.createElement("li");
+            li.textContent = item;
+            list.appendChild(li);
+          });
+        }
+      </script>
+</body>      
     
 </html>
