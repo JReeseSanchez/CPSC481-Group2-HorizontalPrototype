@@ -72,10 +72,10 @@ header {
 }
 
 .itinerary-scroll {
-    overflow-x: auto; /* ✅ allow scroll both ways */
-    scroll-behavior: smooth;
-    flex-grow: 1;
-    width: 100%;
+    display: flex;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    white-space: nowrap; /* Prevents wrapping of child elements */
 }
 
 
@@ -103,11 +103,12 @@ header {
     margin: auto;
 }
 .day-box h3 a.day-link {
+    font-size: 0.8em;
     text-decoration: none;
     color: black;
     display: block;
     background-color: #b2c4e9;
-    padding: 5px;
+    padding-top: 5px;
     border-radius: 5px;
 }
 
@@ -157,7 +158,8 @@ header {
 /* Date Header inside Itinerary */
 .day-box h3 {
     background-color: #b2c4e9; /* Light blue */
-    padding: 5px;
+    padding-bottom: 0.1px;
+    padding-top: 2px;
     text-align: center;
     border-radius: 5px;
     color: black;
@@ -166,6 +168,7 @@ header {
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;
+    cursor: pointer;
 }
 
 /* Plus Button */

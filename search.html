@@ -22,6 +22,9 @@
         </div>
       </header>
       <div id="mainPage">
+        <div id="goBackContainer" style="display: none; margin-bottom: 20px;">
+            <button id="goBackButton" onclick="goBackToItinerary()">&#8592; Go Back</button>
+        </div>
         <div class="search-container">
             <form action="searchResult.html" method="GET">
                 <div class="search-row">
@@ -215,6 +218,16 @@
                 filter.style.display = "none";
                 // Reset icon rotation
             }
+        }
+
+            // Check if the user came from clickonitinary.html
+        if (localStorage.getItem('fromClickOnItinerary') === 'true') {
+            document.getElementById('goBackContainer').style.display = 'block';
+        }
+
+        function goBackToItinerary() {
+            localStorage.removeItem('fromClickOnItinerary'); // Clear the flag
+            window.location.href = 'clickonitinary.html';
         }
       </script>
       <script>

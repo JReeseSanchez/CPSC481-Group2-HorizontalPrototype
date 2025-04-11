@@ -159,7 +159,7 @@
         </div>
     </div>
       <!--Right Arrow button-ch-->
-      <button class="arrow-button arrow-right" onclick="scrollRight()">
+    <button class="arrow-button arrow-right" onclick="scrollRight()">
         <i class="fas fa-chevron-right"></i>
     </button>
 </div>
@@ -209,19 +209,22 @@
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("NavBar").style.display = "none";
     });
-    function scrollLeft() {
+// Smooth scroll to the previous page
+function scrollLeft() {
     const container = document.querySelector('.itinerary-scroll');
-    console.log("scrollLeft position:", container.scrollLeft);
+    const scrollAmount = container.offsetWidth; // Get the visible width of the container
     container.scrollTo({
-        left: container.scrollLeft - 1040,
+        left: container.scrollLeft - scrollAmount,
         behavior: 'smooth'
     });
 }
 
+// Smooth scroll to the next page
 function scrollRight() {
     const container = document.querySelector('.itinerary-scroll');
+    const scrollAmount = container.offsetWidth; // Get the visible width of the container
     container.scrollTo({
-        left: container.scrollLeft + 1040,
+        left: container.scrollLeft + scrollAmount,
         behavior: 'smooth'
     });
 }
@@ -392,6 +395,8 @@ function scrollRight() {
             popup.style.display = 'none';
         }
     }
+
+    
 </script>
 
 </body>

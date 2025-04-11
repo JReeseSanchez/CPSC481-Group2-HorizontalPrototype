@@ -17,7 +17,10 @@
             <a href="login.html"><button id="navButton">Sign In</button></a>
         </div>
       </header>
-      <div id="mainPage">
+      <div id="mainPage" class="main-layout">
+        <div class="back-button-container">
+            <a href="javascript:void(0);" class="back-button" id="backButton">&#8592; Go Back</a>
+        </div>
         <div class="itinerary-container">
             <h2 class="itinerary-title">New Itinerary</h2>
             
@@ -25,25 +28,25 @@
                 <div class="form-row">
                     <div class="form-group title-group">
                         <label for="itinerary-title">Title</label>
-                        <input type="text" id="itinerary-title" name="itinerary-title" required>
+                        <input type="text" id="itinerary-title" name="itinerary-title" required placeholder="Trip to Calgary">
                     </div>
                     
                     <div class="date-container">
                         <div class="form-group">
                             <label for="start-date">Start</label>
-                            <input type="date" id="start-date" name="start-date" required>
+                            <input type="text" id="end-date" name="end-date" required placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')">
                         </div>
                         
                         <div class="form-group">
                             <label for="end-date">End</label>
-                            <input type="date" id="end-date" name="end-date" required>
+                            <input type="text" id="end-date" name="end-date" required placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')">
                         </div>
                     </div>
                 </div>
                 
                 <div class="form-group notes-group">
                     <label for="notes">Notes</label>
-                    <textarea id="notes" name="notes" rows="6"></textarea>
+                    <textarea id="notes" name="notes" rows="6" placeholder="In a galaxy far far away..."></textarea>
                 </div>
                 
                 <button type="submit" class="create-button">+ Create</button>
@@ -70,10 +73,19 @@
             // Redirect to createItinerary.html
             window.location.href = 'createItinerary.html';
         }
-      </script>
-	</body>
-</html>
-        }
+
+
+    // Set the back button to navigate to the previous page
+    const backButton = document.getElementById('backButton');
+    const referrer = document.referrer;
+
+    if (referrer) {
+        backButton.href = referrer;
+    } else {
+        // Fallback if no referrer is available
+        backButton.href = "listItinerary.html";
+    }
+
       </script>
 	</body>
 </html>
