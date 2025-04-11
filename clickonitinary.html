@@ -28,11 +28,17 @@
     <p class="trip-dates">June 17, 2024 - June 23, 2024</p>
 
     <!-- Scrollable Itinerary Section -->
+      <!-- wrapper div -->
+      <div class="carousel-wrapper">
+        <button class="arrow-button arrow-left" onclick="scrollLeft()">
+            <i class="fas fa-chevron-left"></i>
+        </button>
     <div class="itinerary-scroll">
         <div class="itinerary-container">
             <!-- Day 1 -->
             <div class="day-box">
-                <h3>Tuesday, June 17</h3>
+                <h3><a class="day-link" href="day-detail.html?day=1">Tuesday, June 17</a></h3>
+
                 <p><strong>Stay:</strong> Fairmont Hotel</p>
                 <ul class="activity-list">
                     <li class="activity-item" onclick="showActivityDetails(this, 'prince-edward')">
@@ -45,12 +51,15 @@
                         <input type="checkbox"> Mr. Puffs
                     </li>
                 </ul>
-                <button class="add-button" onclick="window.location.href='search.html'">+ Add Activity</button>
+                <button class="add-button" onclick="window.location.href='search.html?day=1'">+ Add Activity</button>
+
+            
             </div>
 
             <!-- Day 2 -->
             <div class="day-box">
-                <h3>Wednesday, June 18</h3>
+                <h3><a class="day-link" href="day-detail.html?day=2">Wednesday, June 18</a></h3>
+
                 <p><strong>Stay:</strong> Fairmont Hotel</p>
                 <ul class="activity-list">
                     <li class="activity-item" onclick="showActivityDetails(this, 'breakfast')">
@@ -72,12 +81,15 @@
                         <span>18:00 - 18:30: C-Train back to Hotel</span>
                     </li>
                 </ul>
-                <button class="add-button" onclick="window.location.href='search.html'">+ Add Activity</button>
+                <button class="add-button" onclick="window.location.href='search.html?day=2'">+ Add Activity</button>
+
+                
             </div>
 
             <!-- Day 3 -->
             <div class="day-box">
-                <h3>Thursday, June 19</h3>
+                <h3><a class="day-link" href="day-detail.html?day=3">Thrusday, June 19</a></h3>
+
                 <p><strong>Stay:</strong> Fairmont Hotel</p>
                 <ul class="activity-list">
                     <li class="activity-item" onclick="showActivityDetails(this, 'banff')">
@@ -90,11 +102,67 @@
                         <input type="checkbox"> This is a longer activity name that should wrap properly within the day box
                     </li>
                 </ul>
+                <button class="add-button" onclick="window.location.href='search.html?day=3'">+ Add Activity</button>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="day-box">
+               <h3><a class="day-link" href="day-detail.html?day=3">Friday, June 20</a></h3>
+                <p><strong>Stay:</strong> Fairmont Hotel</p>
+                <ul class="activity-list">
+                    <li class="activity-item" onclick="showActivityDetails(this, 'banff')">
+                        <input type="checkbox"> Go to Lake Minnewanka
+                    </li>
+                    <li class="activity-item" onclick="showActivityDetails(this, 'lake-louise')">
+                        <input type="checkbox"> Lake Minnewanka Boat Tour
+                    </li>
+                    <li class="activity-item" onclick="showActivityDetails(this, 'long-activity')">
+                        <input type="checkbox"> Bow Falls Hike
+                    </li>
+                </ul>
                 <button class="add-button" onclick="window.location.href='search.html'">+ Add Activity</button>
             </div>
+ <!-- Day 5 -->
+ <div class="day-box">
+    <h3><a class="day-link" href="day-detail.html?day=3">Saturday, June 21</a></h3>
+    <p><strong>Stay:</strong> Fairmont Hotel</p>
+    <ul class="activity-list">
+        <li class="activity-item" onclick="showActivityDetails(this, 'banff')">
+            <input type="checkbox"> Drive to Lake Johnston
+        </li>
+        <li class="activity-item" onclick="showActivityDetails(this, 'lake-louise')">
+            <input type="checkbox"> Cayone Hike
+        </li>
+        <li class="activity-item" onclick="showActivityDetails(this, 'long-activity')">
+            <input type="checkbox"> Banff Upper Hot Springs
+        </li>
+    </ul>
+    <button class="add-button" onclick="window.location.href='search.html'">+ Add Activity</button>
+</div>
+ <!-- Day 6 -->
+ <div class="day-box">
+    <h3><a class="day-link" href="day-detail.html?day=3">Thrusday, June 19</a></h3>
+    <p><strong>Stay:</strong> Fairmont Hotel</p>
+    <ul class="activity-list">
+        <li class="activity-item" onclick="showActivityDetails(this, 'banff')">
+            <input type="checkbox"> Drive to Lake Johnston
+        </li>
+        <li class="activity-item" onclick="showActivityDetails(this, 'lake-louise')">
+            <input type="checkbox"> Cayone Hike
+        </li>
+        <li class="activity-item" onclick="showActivityDetails(this, 'long-activity')">
+            <input type="checkbox"> Banff Upper Hot Springs
+        </li>
+    </ul>
+    <button class="add-button" onclick="window.location.href='search.html'">+ Add Activity</button>
+</div>
         </div>
     </div>
-    
+      <!--Right Arrow button-ch-->
+      <button class="arrow-button arrow-right" onclick="scrollRight()">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+</div>
     <!-- Activity Details Popup -->
     <div id="activityPopup" class="activity-popup">
         <div class="popup-content">
@@ -138,7 +206,23 @@
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("NavBar").style.display = "none";
     });
-    
+    function scrollLeft() {
+    const container = document.querySelector('.itinerary-scroll');
+    console.log("scrollLeft position:", container.scrollLeft);
+    container.scrollTo({
+        left: container.scrollLeft - 1040,
+        behavior: 'smooth'
+    });
+}
+
+function scrollRight() {
+    const container = document.querySelector('.itinerary-scroll');
+    container.scrollTo({
+        left: container.scrollLeft + 1040,
+        behavior: 'smooth'
+    });
+}
+
     // Activity details data (hardcoded for demonstration)
     const activityData = {
         'prince-edward': {
