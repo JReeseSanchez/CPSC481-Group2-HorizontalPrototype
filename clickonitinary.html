@@ -14,7 +14,7 @@
 
 <header>
     <div id="titleHeader">
-        <div>
+        <div id="headerLeft">
             <a href="searchLOGIN.html"><button id="navButton">Search</button></a>
             <a href="listItinerary.html"><button id="navButton">List Itineraries</button></a>
         </div>
@@ -35,139 +35,140 @@
 
     <!-- Scrollable Itinerary Section -->
       <!-- wrapper div -->
-      <div class="carousel-wrapper">
+    <div class="carousel-wrapper">
         <button class="arrow-button arrow-left" onclick="scrollLeft()">
             <i class="fas fa-chevron-left"></i>
         </button>
-    <div class="itinerary-scroll">
-        <div class="itinerary-container">
-            <!-- Day 1 -->
-            <div class="day-box">
-                <h3><a class="day-link" href="day-detail.html?day=1">Tuesday, June 17</a></h3>
+        <div class="itinerary-scroll">
+            <div class="itinerary-container">
+                <!-- Day 1 -->
+                <div class="day-box">
+                    <h3><a class="day-link" href="day-detail.html?day=1">Tuesday, June 17</a></h3>
 
-                <p><strong>Stay:</strong> Fairmont Hotel</p>
-                <ul class="activity-list">
-                    <li class="activity-item" onclick="showActivityDetails(this, 'prince-edward')">
-                        <input type="checkbox"> Prince Edward Island
-                    </li>
-                    <li class="activity-item" onclick="showActivityDetails(this, '17th-ave')">
-                        <input type="checkbox"> 17th Ave
-                    </li>
-                    <li class="activity-item" onclick="showActivityDetails(this, 'mr-puffs')">
-                        <input type="checkbox"> Mr. Puffs
-                    </li>
-                </ul>
-                <button class="add-button" onclick="window.location.href='search.html?day=1'">+ Add Activity</button>
-
-            
-            </div>
-
-            <!-- Day 2 -->
-            <div class="day-box">
-                <h3><a class="day-link" href="day-detail.html?day=2">Wednesday, June 18</a></h3>
-
-                <p><strong>Stay:</strong> Fairmont Hotel</p>
-                <ul class="activity-list">
-                    <li class="activity-item" onclick="showActivityDetails(this, 'breakfast')">
-                        <span>9:00 - 9:00: Breakfast and get ready</span>
-                    </li>
-                    <li class="activity-item" onclick="showActivityDetails(this, 'downtown')">
-                        <span>9:00 - 12:00: Explore Downtown</span>
-                    </li>
-                    <li class="activity-item" onclick="showActivityDetails(this, 'jump-room')">
-                        <span>12:00 - 13:00: Lunch at Jump Room</span>
-                    </li>
-                    <li class="activity-item" onclick="showActivityDetails(this, 'c-train')">
-                        <span>13:00 - 13:30: C-Train to Chinook Mall</span>
-                    </li>
-                    <li class="activity-item" onclick="showActivityDetails(this, 'chinook-mall')">
-                        <span>13:30 - 18:00: Shop and Dine</span>
-                    </li>
-                    <li class="activity-item" onclick="showActivityDetails(this, 'c-train-back')">
-                        <span>18:00 - 18:30: C-Train back to Hotel</span>
-                    </li>
-                </ul>
-                <button class="add-button" onclick="window.location.href='search.html?day=2'">+ Add Activity</button>
+                    <p><strong>Stay:</strong> Fairmont Hotel</p>
+                    <ul class="activity-list">
+                        <li class="activity-item" onclick="showActivityDetails(this, 'prince-edward')">
+                            <input type="checkbox"> Prince Edward Island
+                        </li>
+                        <li class="activity-item" onclick="showActivityDetails(this, '17th-ave')">
+                            <input type="checkbox"> 17th Ave
+                        </li>
+                        <li class="activity-item" onclick="showActivityDetails(this, 'mr-puffs')">
+                            <input type="checkbox"> Mr. Puffs
+                        </li>
+                    </ul>
+                    <button class="add-button" onclick="window.location.href='searchLOGIN.html?day=1'">+ Add Activity</button>
 
                 
-            </div>
+                </div>
 
-            <!-- Day 3 -->
-            <div class="day-box">
-                <h3><a class="day-link" href="day-detail.html?day=3">Thrusday, June 19</a></h3>
+                <!-- Day 2 -->
+                <div class="day-box">
+                    <h3><a class="day-link" href="day-detail.html?day=2">Wednesday, June 18</a></h3>
 
-                <p><strong>Stay:</strong> Fairmont Hotel</p>
-                <ul class="activity-list">
-                    <li class="activity-item" onclick="showActivityDetails(this, 'banff')">
-                        <input type="checkbox"> Go to Banff
-                    </li>
-                    <li class="activity-item" onclick="showActivityDetails(this, 'lake-louise')">
-                        <input type="checkbox"> Visit Lake Louise
-                    </li>
-                    <li class="activity-item" onclick="showActivityDetails(this, 'long-activity')">
-                        <input type="checkbox"> This is a longer activity name that should wrap properly within the day box
-                    </li>
-                </ul>
-                <button class="add-button" onclick="window.location.href='search.html?day=3'">+ Add Activity</button>
-            </div>
+                    <p><strong>Stay:</strong> Fairmont Hotel</p>
+                    <ul class="activity-list">
+                        <li class="activity-item" onclick="showActivityDetails(this, 'breakfast')">
+                            <span>9:00 - 9:00: Breakfast and get ready</span>
+                        </li>
+                        <li class="activity-item" onclick="showActivityDetails(this, 'downtown')">
+                            <span>9:00 - 12:00: Explore Downtown</span>
+                        </li>
+                        <li class="activity-item" onclick="showActivityDetails(this, 'jump-room')">
+                            <span>12:00 - 13:00: Lunch at Jump Room</span>
+                        </li>
+                        <li class="activity-item" onclick="showActivityDetails(this, 'c-train')">
+                            <span>13:00 - 13:30: C-Train to Chinook Mall</span>
+                        </li>
+                        <li class="activity-item" onclick="showActivityDetails(this, 'chinook-mall')">
+                            <span>13:30 - 18:00: Shop and Dine</span>
+                        </li>
+                        <li class="activity-item" onclick="showActivityDetails(this, 'c-train-back')">
+                            <span>18:00 - 18:30: C-Train back to Hotel</span>
+                        </li>
+                    </ul>
+                    <button class="add-button" onclick="window.location.href='searchLOGIN.html?day=2'">+ Add Activity</button>
 
-            <!-- Day 4 -->
-            <div class="day-box">
-               <h3><a class="day-link" href="day-detail.html?day=3">Friday, June 20</a></h3>
-                <p><strong>Stay:</strong> Fairmont Hotel</p>
-                <ul class="activity-list">
-                    <li class="activity-item" onclick="showActivityDetails(this, 'banff')">
-                        <input type="checkbox"> Go to Lake Minnewanka
-                    </li>
-                    <li class="activity-item" onclick="showActivityDetails(this, 'lake-louise')">
-                        <input type="checkbox"> Lake Minnewanka Boat Tour
-                    </li>
-                    <li class="activity-item" onclick="showActivityDetails(this, 'long-activity')">
-                        <input type="checkbox"> Bow Falls Hike
-                    </li>
-                </ul>
-                <button class="add-button" onclick="window.location.href='search.html'">+ Add Activity</button>
+                    
+                </div>
+
+                <!-- Day 3 -->
+                <div class="day-box">
+                    <h3><a class="day-link" href="day-detail.html?day=3">Thrusday, June 19</a></h3>
+
+                    <p><strong>Stay:</strong> Fairmont Hotel</p>
+                    <ul class="activity-list">
+                        <li class="activity-item" onclick="showActivityDetails(this, 'banff')">
+                            <input type="checkbox"> Go to Banff
+                        </li>
+                        <li class="activity-item" onclick="showActivityDetails(this, 'lake-louise')">
+                            <input type="checkbox"> Visit Lake Louise
+                        </li>
+                        <li class="activity-item" onclick="showActivityDetails(this, 'long-activity')">
+                            <input type="checkbox"> This is a longer activity name that should wrap properly within the day box
+                        </li>
+                    </ul>
+                    <button class="add-button" onclick="window.location.href='searchLOGIN.html?day=3'">+ Add Activity</button>
+                </div>
+
+                <!-- Day 4 -->
+                <div class="day-box">
+                    <h3><a class="day-link" href="day-detail.html?day=3">Friday, June 20</a></h3>
+                    <p><strong>Stay:</strong> Fairmont Hotel</p>
+                    <ul class="activity-list">
+                        <li class="activity-item" onclick="showActivityDetails(this, 'banff')">
+                            <input type="checkbox"> Go to Lake Minnewanka
+                        </li>
+                        <li class="activity-item" onclick="showActivityDetails(this, 'lake-louise')">
+                            <input type="checkbox"> Lake Minnewanka Boat Tour
+                        </li>
+                        <li class="activity-item" onclick="showActivityDetails(this, 'long-activity')">
+                            <input type="checkbox"> Bow Falls Hike
+                        </li>
+                    </ul>
+                    <button class="add-button" onclick="window.location.href='searchLOGIN.html?day=4'">+ Add Activity</button>
+                    
+                </div>
+                <!-- Day 5 -->
+                <div class="day-box">
+                    <h3><a class="day-link" href="day-detail.html?day=3">Saturday, June 21</a></h3>
+                    <p><strong>Stay:</strong> Fairmont Hotel</p>
+                    <ul class="activity-list">
+                        <li class="activity-item" onclick="showActivityDetails(this, 'banff')">
+                            <input type="checkbox"> Drive to Lake Johnston
+                        </li>
+                        <li class="activity-item" onclick="showActivityDetails(this, 'lake-louise')">
+                            <input type="checkbox"> Cayone Hike
+                        </li>
+                        <li class="activity-item" onclick="showActivityDetails(this, 'long-activity')">
+                            <input type="checkbox"> Banff Upper Hot Springs
+                        </li>
+                    </ul>
+                    <button class="add-button" onclick="window.location.href='searchLOGIN.html?day=5'">+ Add Activity</button>
+                </div>
+                <!-- Day 6 -->
+                <div class="day-box">
+                    <h3><a class="day-link" href="day-detail.html?day=3">Thrusday, June 19</a></h3>
+                    <p><strong>Stay:</strong> Fairmont Hotel</p>
+                    <ul class="activity-list">
+                        <li class="activity-item" onclick="showActivityDetails(this, 'banff')">
+                            <input type="checkbox"> Drive to Lake Johnston
+                        </li>
+                        <li class="activity-item" onclick="showActivityDetails(this, 'lake-louise')">
+                            <input type="checkbox"> Cayone Hike
+                        </li>
+                        <li class="activity-item" onclick="showActivityDetails(this, 'long-activity')">
+                            <input type="checkbox"> Banff Upper Hot Springs
+                        </li>
+                    </ul>
+                    <button class="add-button" onclick="window.location.href='searchLOGIN.html?day=6'">+ Add Activity</button>
+                </div>
             </div>
- <!-- Day 5 -->
- <div class="day-box">
-    <h3><a class="day-link" href="day-detail.html?day=3">Saturday, June 21</a></h3>
-    <p><strong>Stay:</strong> Fairmont Hotel</p>
-    <ul class="activity-list">
-        <li class="activity-item" onclick="showActivityDetails(this, 'banff')">
-            <input type="checkbox"> Drive to Lake Johnston
-        </li>
-        <li class="activity-item" onclick="showActivityDetails(this, 'lake-louise')">
-            <input type="checkbox"> Cayone Hike
-        </li>
-        <li class="activity-item" onclick="showActivityDetails(this, 'long-activity')">
-            <input type="checkbox"> Banff Upper Hot Springs
-        </li>
-    </ul>
-    <button class="add-button" onclick="window.location.href='search.html'">+ Add Activity</button>
-</div>
- <!-- Day 6 -->
- <div class="day-box">
-    <h3><a class="day-link" href="day-detail.html?day=3">Thrusday, June 19</a></h3>
-    <p><strong>Stay:</strong> Fairmont Hotel</p>
-    <ul class="activity-list">
-        <li class="activity-item" onclick="showActivityDetails(this, 'banff')">
-            <input type="checkbox"> Drive to Lake Johnston
-        </li>
-        <li class="activity-item" onclick="showActivityDetails(this, 'lake-louise')">
-            <input type="checkbox"> Cayone Hike
-        </li>
-        <li class="activity-item" onclick="showActivityDetails(this, 'long-activity')">
-            <input type="checkbox"> Banff Upper Hot Springs
-        </li>
-    </ul>
-    <button class="add-button" onclick="window.location.href='search.html'">+ Add Activity</button>
-</div>
-        </div>
     </div>
-      <!--Right Arrow button-ch-->
-    <button class="arrow-button arrow-right" onclick="scrollRight()">
-        <i class="fas fa-chevron-right"></i>
-    </button>
+                <!--Right Arrow button-ch-->
+                <button class="arrow-button arrow-right" onclick="scrollRight()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
 </div>
     <!-- Activity Details Popup -->
     <div id="activityPopup" class="activity-popup">

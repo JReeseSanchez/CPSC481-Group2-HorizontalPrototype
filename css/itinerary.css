@@ -14,12 +14,6 @@ header {
     background-color: transparent;
 }
 
-#titleHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 #title {
     width: 25%;
     padding: 10px;
