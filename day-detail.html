@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>Day Detail - Travel Calgary</title>
   <link rel="stylesheet" href="css/itinerary.css">
+  <link rel="stylesheet" href="css/style.css">
+
   <style>
     body {
       background-color: #f2f9ff;
@@ -108,91 +110,101 @@
 </head>
 <body>
 
-<header>
-  <div id="NavBar">
-    <a href="home.html"><button>Home</button></a>
-    <a href="clickonitinary.html"><button>Back to Itinerary</button></a>
+  <header>
+    <div id="titleHeader">
+      <div>
+          <a href="searchLOGIN.html"><button id="navButton">Search</button></a>
+          <a href="listItinerary.html"><button id="navButton">List Itineraries</button></a>
+      </div>
+      <h1 id="title"><a href="homeLOGIN.html">Travel Calgary</a></h1>
+      <div id="headerRight">
+          <img id="profilePicture" src="images/defaultUser.jpg" width="75" height="75" alt="Profile ">
+          <div id="userInfo">
+              <h4>Daisy Sandwich</h4>
+              <a href="home.html"><button id="signoutButton">Sign Out</button></a>
+          </div>
+      </div>
   </div>
-</header>
+  </header>
 
 
-<div class="content-layout">
-  <!-- Left Panel -->
-  <div class="left-panel">
-    <h2 class="trip-title" id="day-title">Loading...</h2>
-    <p class="trip-dates" id="stay-info"></p>
-    <ul id="activity-list"></ul>
-  </div>
+  <div class="content-layout">
+    <!-- Left Panel -->
+    <div class="left-panel">
+      <h2 class="trip-title" id="day-title">Loading...</h2>
+      <p class="trip-dates" id="stay-info"></p>
+      <ul id="activity-list"></ul>
+    </div>
 
-  <!-- Right Panel -->
-  <div class="right-panel">
-    <h3 style="text-align:center;">Calendar View</h3>
-    <div class="calendar-view">
-      <div class="time" id="time-col"></div>
-      <div class="activity" id="activity-col"></div>
+    <!-- Right Panel -->
+    <div class="right-panel">
+      <h3 style="text-align:center;">Calendar View</h3>
+      <div class="calendar-view">
+        <div class="time" id="time-col"></div>
+        <div class="activity" id="activity-col"></div>
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  const itineraryData = {
-    1: {
-      date: "Tuesday, June 17",
-      stay: "Fairmont Hotel",
-      schedule: [
-        { time: "10:00 AM", activity: "Prince Edward Island", color: "red" },
-        { time: "2:30 PM", activity: "17th Ave", color: "blue" },
-        { time: "5:30 PM", activity: "Mr. Puffs", color: "green" }
-      ]
-    },
-    2: {
-      date: "Wednesday, June 18",
-      stay: "Fairmont Hotel",
-      schedule: [
-        { time: "9:00 AM", activity: "Breakfast and get ready", color: "red" },
-        { time: "9:00 AM - 12:00 PM", activity: "Explore Downtown", color: "blue" },
-        { time: "12:00 PM - 1:00 PM", activity: "Lunch at Jump Room", color: "green" },
-        { time: "1:00 PM - 1:30 PM", activity: "C-Train to Chinook Mall", color: "blue" },
-        { time: "1:30 PM - 6:00 PM", activity: "Shop and Dine", color: "green" },
-        { time: "6:00 PM - 6:30 PM", activity: "C-Train back to Hotel", color: "red" }
-      ]
-    },
-    3: {
-      date: "Thursday, June 19",
-      stay: "Fairmont Hotel",
-      schedule: [
-        { time: "8:00 AM", activity: "Go to Banff", color: "blue" },
-        { time: "10:00 AM", activity: "Visit Lake Louise", color: "green" },
-        { time: "1:00 PM", activity: "Long Activity Name", color: "red" }
-      ]
+  <script>
+    const itineraryData = {
+      1: {
+        date: "Tuesday, June 17",
+        stay: "Fairmont Hotel",
+        schedule: [
+          { time: "10:00 AM", activity: "Prince Edward Island", color: "red" },
+          { time: "2:30 PM", activity: "17th Ave", color: "blue" },
+          { time: "5:30 PM", activity: "Mr. Puffs", color: "green" }
+        ]
+      },
+      2: {
+        date: "Wednesday, June 18",
+        stay: "Fairmont Hotel",
+        schedule: [
+          { time: "9:00 AM", activity: "Breakfast and get ready", color: "red" },
+          { time: "9:00 AM - 12:00 PM", activity: "Explore Downtown", color: "blue" },
+          { time: "12:00 PM - 1:00 PM", activity: "Lunch at Jump Room", color: "green" },
+          { time: "1:00 PM - 1:30 PM", activity: "C-Train to Chinook Mall", color: "blue" },
+          { time: "1:30 PM - 6:00 PM", activity: "Shop and Dine", color: "green" },
+          { time: "6:00 PM - 6:30 PM", activity: "C-Train back to Hotel", color: "red" }
+        ]
+      },
+      3: {
+        date: "Thursday, June 19",
+        stay: "Fairmont Hotel",
+        schedule: [
+          { time: "8:00 AM", activity: "Go to Banff", color: "blue" },
+          { time: "10:00 AM", activity: "Visit Lake Louise", color: "green" },
+          { time: "1:00 PM", activity: "Long Activity Name", color: "red" }
+        ]
+      }
+    };
+
+    const dayParam = new URLSearchParams(window.location.search).get('day');
+    const data = itineraryData[dayParam];
+
+    if (data) {
+      document.getElementById('day-title').textContent = data.date;
+      document.getElementById('stay-info').innerHTML = `<strong>Stay:</strong> ${data.stay}`;
+
+      const activityList = document.getElementById('activity-list');
+      const timeCol = document.getElementById('time-col');
+      const activityCol = document.getElementById('activity-col');
+
+      data.schedule.forEach(item => {
+        // Left list
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${item.time}</strong> - ${item.activity}`;
+        activityList.appendChild(li);
+
+        // Calendar View
+        timeCol.innerHTML += `<div>${item.time}</div>`;
+        activityCol.innerHTML += `<div class="activity-box ${item.color}">${item.activity}</div>`;
+      });
+    } else {
+      document.getElementById('day-title').textContent = "Itinerary Not Found";
     }
-  };
-
-  const dayParam = new URLSearchParams(window.location.search).get('day');
-  const data = itineraryData[dayParam];
-
-  if (data) {
-    document.getElementById('day-title').textContent = data.date;
-    document.getElementById('stay-info').innerHTML = `<strong>Stay:</strong> ${data.stay}`;
-
-    const activityList = document.getElementById('activity-list');
-    const timeCol = document.getElementById('time-col');
-    const activityCol = document.getElementById('activity-col');
-
-    data.schedule.forEach(item => {
-      // Left list
-      const li = document.createElement('li');
-      li.innerHTML = `<strong>${item.time}</strong> - ${item.activity}`;
-      activityList.appendChild(li);
-
-      // Calendar View
-      timeCol.innerHTML += `<div>${item.time}</div>`;
-      activityCol.innerHTML += `<div class="activity-box ${item.color}">${item.activity}</div>`;
-    });
-  } else {
-    document.getElementById('day-title').textContent = "Itinerary Not Found";
-  }
-</script>
+  </script>
 
 </body>
 </html>
