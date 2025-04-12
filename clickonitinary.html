@@ -58,7 +58,7 @@
                         <input type="checkbox"> Mr. Puffs
                     </li>
                 </ul>
-                <button class="viewOnMap">View on Map</button>
+                <button class="viewOnMap" onclick="showMapPopup(1)">View on Map</button>
                 <button class="add-button" onclick="window.location.href='search.html?day=1'">+ Add Activity</button>
 
             
@@ -91,7 +91,7 @@
                         <span>18:00 - 18:30: C-Train back to Hotel</span>
                     </li>
                 </ul>
-                <button class="viewOnMap">View on Map</button>
+                <button class="viewOnMap" onclick="showMapPopup(2)">View on Map</button>
                 <button class="add-button" onclick="window.location.href='search.html?day=2'">+ Add Activity</button>
 
                 
@@ -114,7 +114,7 @@
                         <input type="checkbox"> This is a longer activity name that should wrap properly within the day box
                     </li>
                 </ul>
-                <button class="viewOnMap">View on Map</button>
+                <button class="viewOnMap" onclick="showMapPopup(3)">View on Map</button>
                 <button class="add-button" onclick="window.location.href='search.html?day=3'">+ Add Activity</button>
             </div>
 
@@ -135,7 +135,7 @@
                         <input type="checkbox"> Bow Falls Hike
                     </li>
                 </ul>
-                <button class="viewOnMap">View on Map</button>
+                <button class="viewOnMap" onclick="showMapPopup(1)">View on Map</button>
                 <button class="add-button" onclick="window.location.href='search.html'">+ Add Activity</button>
             </div>
  <!-- Day 5 -->
@@ -155,7 +155,7 @@
             <input type="checkbox"> Banff Upper Hot Springs
         </li>
     </ul>
-    <button class="viewOnMap">View on Map</button>
+    <button class="viewOnMap" onclick="showMapPopup(2)">View on Map</button>
     <button class="add-button" onclick="window.location.href='search.html'">+ Add Activity</button>
 </div>
  <!-- Day 6 -->
@@ -175,7 +175,7 @@
             <input type="checkbox"> Banff Upper Hot Springs
         </li>
     </ul>
-    <button class="viewOnMap">View on Map</button>
+    <button class="viewOnMap" onclick="showMapPopup(3)">View on Map</button>
     <button class="add-button" onclick="window.location.href='search.html'">+ Add Activity</button>
 </div>
         </div>
@@ -220,6 +220,22 @@
             <div id="editButtons">
                 <a href="newActivity.html"><button class="edit">Edit Activity</button></a>
                 <button id="red" style="color: white; font-size: 1.2em; border-radius: 10px; padding: 5px;">Delete Activity</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map View Popup -->
+    <div id="mapPopup" class="map-popup">
+        <div class="map-popup-content">
+            <span class="close-map-popup" onclick="closeMapPopup()">&times;</span>
+            <h3 id="mapPopupTitle">Day Map View</h3>
+            <div class="map-container">
+                <img id="mapImage" src="images/1_vH7fb-tzLapLAFVOxFp7dw.png" alt="Map View" />
+            </div>
+            <div class="route-info">
+                <p id="mapDistance"><strong>Total Distance:</strong> <b>0 km</b></p>
+                <p id="mapTime"><strong>Total Travel Time:</strong> <b>0 min</b></p>
+                <p id="mapTransport"><strong>Transportation:</strong> <b>Unknown</b></p>
             </div>
         </div>
     </div>
@@ -418,7 +434,58 @@ function scrollRight() {
         }
     }
 
-    
+    // Map data for each day (arbitrary for demo purposes)
+    const mapDetails = {
+        1: {
+            title: 'Tuesday, June 17 - Map View',
+            mapImage: 'images/1_vH7fb-tzLapLAFVOxFp7dw.png', // Replace with actual map image
+            totalDistance: '8.3 km',
+            totalTime: '35 min',
+            transportation: 'Car'
+        },
+        2: {
+            title: 'Wednesday, June 18 - Map View',
+            mapImage: 'images/1_vH7fb-tzLapLAFVOxFp7dw.png',
+            totalDistance: '10.5 km',
+            totalTime: '40 min',
+            transportation: 'Bus'
+        },
+        3: {
+            title: 'Thursday, June 19 - Map View',
+            mapImage: 'images/1_vH7fb-tzLapLAFVOxFp7dw.png',
+            totalDistance: '12.7 km',
+            totalTime: '50 min',
+            transportation: 'Train'
+        },
+        // Add more days as needed
+    };
+
+    // Show the map popup
+    function showMapPopup(day) {
+        const popup = document.getElementById('mapPopup');
+        const data = mapDetails[day] || {
+            title: 'Map View',
+            mapImage: 'images/1_vH7fb-tzLapLAFVOxFp7dw.png',
+            totalDistance: 'Unknown',
+            totalTime: 'Unknown',
+            transportation: 'Unknown'
+        };
+
+        // Populate the popup with map details
+        document.getElementById('mapPopupTitle').textContent = data.title;
+        document.getElementById('mapImage').src = data.mapImage;
+        document.getElementById('mapDistance').textContent = `Total Distance: ${data.totalDistance}`;
+        document.getElementById('mapTime').textContent = `Total Travel Time: ${data.totalTime}`;
+        document.getElementById('mapTransport').textContent = `Transportation: ${data.transportation}`;
+
+        // Show the popup
+        popup.style.display = 'block';
+    }
+
+    // Close the map popup
+    function closeMapPopup() {
+        document.getElementById('mapPopup').style.display = 'none';
+    }
 </script>
 
 </body>
