@@ -43,7 +43,8 @@
         <div class="itinerary-container">
             <!-- Day 1 -->
             <div class="day-box">
-                <h3><a class="day-link" href="day-detail.html?day=1">Tuesday, June 17</a></h3>
+                <h3><a class="day-link" href="">Tuesday, June 17</a></h3>
+                <h4><a class="calendar-link" href="day-detail.html?day=1">Get Calendar View</a></h4>
 
                 <p><strong>Stay:</strong> Fairmont Hotel</p>
                 <ul class="activity-list">
@@ -57,6 +58,7 @@
                         <input type="checkbox"> Mr. Puffs
                     </li>
                 </ul>
+                <button class="viewOnMap">View on Map</button>
                 <button class="add-button" onclick="window.location.href='search.html?day=1'">+ Add Activity</button>
 
             
@@ -64,7 +66,9 @@
 
             <!-- Day 2 -->
             <div class="day-box">
-                <h3><a class="day-link" href="day-detail.html?day=2">Wednesday, June 18</a></h3>
+                <h3><a class="day-link" href="">Wednesday, June 18</a></h3>
+
+                <h4><a class="calendar-link" href="day-detail.html?day=2">Get Calendar View</a></h4>
 
                 <p><strong>Stay:</strong> Fairmont Hotel</p>
                 <ul class="activity-list">
@@ -87,6 +91,7 @@
                         <span>18:00 - 18:30: C-Train back to Hotel</span>
                     </li>
                 </ul>
+                <button class="viewOnMap">View on Map</button>
                 <button class="add-button" onclick="window.location.href='search.html?day=2'">+ Add Activity</button>
 
                 
@@ -94,7 +99,8 @@
 
             <!-- Day 3 -->
             <div class="day-box">
-                <h3><a class="day-link" href="day-detail.html?day=3">Thrusday, June 19</a></h3>
+                <h3><a class="day-link" href="">Thrusday, June 19</a></h3>
+                <h4><a class="calendar-link" href="day-detail.html?day=3">Get Calendar View</a></h4>
 
                 <p><strong>Stay:</strong> Fairmont Hotel</p>
                 <ul class="activity-list">
@@ -108,12 +114,15 @@
                         <input type="checkbox"> This is a longer activity name that should wrap properly within the day box
                     </li>
                 </ul>
+                <button class="viewOnMap">View on Map</button>
                 <button class="add-button" onclick="window.location.href='search.html?day=3'">+ Add Activity</button>
             </div>
 
             <!-- Day 4 -->
             <div class="day-box">
-               <h3><a class="day-link" href="day-detail.html?day=3">Friday, June 20</a></h3>
+               <h3><a class="day-link" href="">Friday, June 20</a></h3>
+               <h4><a class="calendar-link" href="day-detail.html?day=3">Get Calendar View</a></h4>
+
                 <p><strong>Stay:</strong> Fairmont Hotel</p>
                 <ul class="activity-list">
                     <li class="activity-item" onclick="showActivityDetails(this, 'banff')">
@@ -126,11 +135,14 @@
                         <input type="checkbox"> Bow Falls Hike
                     </li>
                 </ul>
+                <button class="viewOnMap">View on Map</button>
                 <button class="add-button" onclick="window.location.href='search.html'">+ Add Activity</button>
             </div>
  <!-- Day 5 -->
  <div class="day-box">
-    <h3><a class="day-link" href="day-detail.html?day=3">Saturday, June 21</a></h3>
+    <h3><a class="day-link" href="">Saturday, June 21</a></h3>
+    <h4><a class="calendar-link" href="day-detail.html?day=3">Get Calendar View</a></h4>
+
     <p><strong>Stay:</strong> Fairmont Hotel</p>
     <ul class="activity-list">
         <li class="activity-item" onclick="showActivityDetails(this, 'banff')">
@@ -143,11 +155,14 @@
             <input type="checkbox"> Banff Upper Hot Springs
         </li>
     </ul>
+    <button class="viewOnMap">View on Map</button>
     <button class="add-button" onclick="window.location.href='search.html'">+ Add Activity</button>
 </div>
  <!-- Day 6 -->
  <div class="day-box">
-    <h3><a class="day-link" href="day-detail.html?day=3">Thrusday, June 19</a></h3>
+    <h3><a class="day-link" href="">Thrusday, June 19</a></h3>
+    <h4><a class="calendar-link" href="day-detail.html?day=3">Get Calendar View</a></h4>
+
     <p><strong>Stay:</strong> Fairmont Hotel</p>
     <ul class="activity-list">
         <li class="activity-item" onclick="showActivityDetails(this, 'banff')">
@@ -160,6 +175,7 @@
             <input type="checkbox"> Banff Upper Hot Springs
         </li>
     </ul>
+    <button class="viewOnMap">View on Map</button>
     <button class="add-button" onclick="window.location.href='search.html'">+ Add Activity</button>
 </div>
         </div>
@@ -202,8 +218,8 @@
                 </div>
             </div>
             <div id="editButtons">
-                <a href="newActivity.html"><button>Edit Activity</button></a>
-                <button id="red">Delete Activity</button>
+                <a href="newActivity.html"><button class="edit">Edit Activity</button></a>
+                <button id="red" style="color: white; font-size: 1.2em; border-radius: 10px; padding: 5px;">Delete Activity</button>
             </div>
         </div>
     </div>

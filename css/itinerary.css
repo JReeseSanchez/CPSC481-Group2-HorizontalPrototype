@@ -1,59 +1,4 @@
-/* General Page Styles */
-body {
-    font-family: 'Inter', sans-serif;
-    text-align: center;
-    background-color: rgb(242, 249, 255); /* Match style.css background color */
-    margin: 0;
-    padding: 0;
-}
 
-/* Header Styles - Match style.css */
-header {
-    margin: 0;
-    padding: 0;
-    background-color: transparent;
-}
-
-#titleHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#title {
-    width: 25%;
-    padding: 10px;
-    text-align: center;
-}
-
-#headerItem {
-    background-color: rgb(145, 176, 218);
-    width: 150px;
-}
-
-#headerItem:hover {
-    background-color: rgb(188, 206, 231);
-}
-
-/* Navigation Bar */
-#NavBar {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    background-color: #ddd;
-    padding: 10px;
-}
-
-#NavBar button {
-    background-color: rgb(235, 70, 79); /* Red background */
-    color: black; /* Black text */
-    font-weight: bold;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 10px;
-}
 
 /* Centering the Trip Title */
 .trip-title, .trip-dates {
@@ -76,6 +21,7 @@ header {
     overflow-x: auto; /* Enables horizontal scrolling */
     scroll-behavior: smooth; /* Smooth scrolling */
     white-space: nowrap; /* Prevents wrapping of child elements */
+    width: 100%;
 }
 
 
@@ -105,20 +51,20 @@ header {
 .day-box h3 a.day-link {
     font-size: 0.8em;
     text-decoration: none;
-    color: black;
+    color: white;
     display: block;
-    background-color: #b2c4e9;
-    padding-top: 5px;
+    background-color: #007BFF;
+    padding-top: 8px;
     border-radius: 5px;
+    height: 30px;
+    cursor: auto;
 }
 
-.day-box h3 a.day-link:hover {
-    background-color: #a3b6dd;
-}
 
 
 /* Itinerary Card Style */
 .day-box {
+    height: 500px;
     background-color: white;
     padding: 15px;
     border-radius: 10px;
@@ -157,24 +103,48 @@ header {
 
 /* Date Header inside Itinerary */
 .day-box h3 {
-    background-color: #b2c4e9; /* Light blue */
-    padding-bottom: 0.1px;
-    padding-top: 2px;
+    background-color: #007BFF; /* Light blue */
+    padding-bottom: 0px;
+    padding-top: 0  px;
     text-align: center;
     border-radius: 5px;
-    color: black;
+    color: white;
     margin-top: 0;
     margin-bottom: 10px;
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;
+}
+
+.day-link {
+    background-color: #007BFF;
+    color: white;
+}
+
+.calendar-link { 
+    text-decoration: underline;
+    margin-left: 50px;
+    margin-right: auto;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
     cursor: pointer;
+    font-size: 0.8em;
+}
+
+.calendar-link:hover {
+    text-decoration: underline;
+    color: #3f9cff; /* Darker blue */
 }
 
 /* Plus Button */
 .add-button {
-    background-color: rgb(235, 70, 79); /* Light blue */
-    color: white; /* Black text */
+    color: black; /* Black text */
     border: none;
     padding: 6px 12px;
     width: 90%;
@@ -191,10 +161,6 @@ header {
     margin: 0;
 }
 
-.add-button:hover {
-    background-color: rgb(248, 98, 105); /* Slightly darker blue */
-}
-
 #red{
     background-color: rgb(235, 70, 79);
 }
@@ -205,4 +171,39 @@ header {
 
 #editButtons {
     display: flex;
+    justify-content: center;
+}
+
+.viewOnMap {
+    background-color: #007BFF; /* Light blue */
+    color: white; /* Black text */
+    border: none;
+    padding: 6px 12px;
+    width: 90%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+}
+
+.viewOnMap:hover {
+    background-color: #3f9cff; /* Darker blue */
+}
+
+.edit {
+    color: white;
+    background-color: #007BFF; 
+    font-size: 1.2em; 
+    border-radius: 10px;
+}
+
+.edit:hover {
+    background-color: #3f9cff; /* Darker blue */
 }

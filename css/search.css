@@ -124,7 +124,7 @@ form > select {
 }
 
 #arrowButton:hover {
-    background-color: rgb(145, 176, 218);
+    background-color: #007BFF;
     border: none;
     width: 70%;
     height: 70%;
@@ -135,7 +135,7 @@ form > select {
 #optionButtons {
     display: flex;
     justify-content: center;
-    width: 50%;
+    width: 500px;
     margin-top: 10px;
 }
 
