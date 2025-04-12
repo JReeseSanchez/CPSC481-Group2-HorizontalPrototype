@@ -4,6 +4,8 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/search.css">
         <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="css/itinerary.css">
+        <link rel="stylesheet" href="css/activity-popup.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
 		
@@ -113,7 +115,7 @@
         <div id="recommendedBox">
             <h2 style="margin-top: 60px; margin-bottom: 30px;"> Recommended Activities</h2>
             <div id="container">
-                <div id="activity">
+                <div id="activity" onclick="showActivityDetails(this, 'prince-edward')">
                     <img id="activityPhoto" src="images/Little-Caesars-Logo.png" width="250" height="250" alt="Little Caesars">
                     <h3>Little Caesars</h3>
                     <div id="textRow">
@@ -126,7 +128,7 @@
                     </div>
                     <a href=""><button>Add to Itinerary</button></a>
                 </div>
-                <div id="activity">
+                <div id="activity" onclick="showActivityDetails(this, 'banff')">
                     <img id="activityPhoto" src="images/OlympicOval.jpg" width="250" height="250" alt="Little Caesars">
                     <h3>Skating at the Olympic Oval</h3>
                     <div id="textRow">
@@ -140,7 +142,7 @@
                     <a href=""><button>Add to Itinerary</button></a>
 
                 </div>
-                <div id="activity">
+                <div id="activity" onclick="showActivityDetails(this, 'pizza73')">
                     <img id="activityPhoto" src="images/Pizza73Logo.svg.png" width="250" height="250" alt="Little Caesars">
                     <h3>Little Caesars</h3>
                     <div id="textRow">
@@ -155,9 +157,11 @@
                 </div>
             </div>
             <div id="container">
+
                 <div id="activity">
                     <img id="activityPhoto" src="images/calgaryTower.jpg" width="250" height="250" alt="Calgary Tower">
                     <h3>Visit the Calgary Tower</h3>
+
                     <div id="textRow">
                         <p>Activity</p>
                         <p>$10-$25</p>
@@ -171,6 +175,7 @@
                 <div id="activity">
                     <img id="activityPhoto" src="images/mrPuffs.png" width="250" height="250" alt="Mr Puffs">
                     <h3>Mr Puffs</h3>
+
                     <div id="textRow">
                         <p>Resturant</p>
                         <p>$15-$30</p>
@@ -185,6 +190,7 @@
                 <div id="activity">
                     <img id="activityPhoto" src="images/ChinookCentre.jpg" width="250" height="250" alt="Chinook Centre">
                     <h3>Chinook Center Mall</h3>
+
                     <div id="textRow">
                         <p>Shopping</p>
                         <p>$10-$100</p>
@@ -196,6 +202,40 @@
                     <a href=""><button>Add to Itinerary</button></a>
                 </div>
             </div>  
+        </div>
+
+        <div id="activityPopup" class="activity-popup">
+            <div class="popup-content">
+                <span class="close-popup" onclick="closePopup()">&times;</span>
+                <h3 id="popupTitle">Activity Name</h3>
+                <p id="popupLocation" class="popup-location">Location: Downtown Calgary</p>
+                <p id="popupTime" class="popup-time">Quick Description</p>
+                <p id="popupPrice" class="popup-price">Price: $$</p>
+                <div id="popupRating" class="popup-rating">
+                    <span class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </span>
+                    <span class="rating-text">4.0/5.0</span>
+                </div>
+                <div>
+                    
+                </div>
+                <div id="popupReviews" class="popup-reviews">
+                    <h4>Reviews</h4>
+                    <div class="review">
+                        <p class="review-text">"Great experience! Would definitely recommend."</p>
+                        <p class="reviewer">- John D.</p>
+                    </div>
+                    <div class="review">
+                        <p class="review-text">"Loved it. The staff was very friendly."</p>
+                        <p class="reviewer">- Sarah M.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
       </div>
@@ -227,6 +267,116 @@
             function hideActiveFilters(){
                 activeFilter.style.display = "none";
             }
+            const activityData = {
+    'prince-edward': {
+        title: 'Little Caesars',
+        location: '17th Ave, Calgary, AB',
+        description: 'Little Caesars is a well-known pizza chain offering a variety of delicious and affordable pizzas. Located on 17th Ave in Calgary, this spot is perfect for a quick bite with friends or family. Their signature "Hot-N-Ready" pizzas are always fresh and ready to go, making it a convenient choice for those on the move.',
+        price: '$10-$20',
+        rating: 4.0,
+        reviews: [
+            { text: 'Totally a bang for your buck!', author: 'Emma T.' },
+            { text: 'The pizza is very greasy, did not like.', author: 'Michael R.' }
+        ]
+    },
+    'banff': {
+        title: 'Skating at the Olympic Oval',
+        location: 'Olympic Oval, Calgary, AB',
+        description: 'The Olympic Oval in Calgary is a world-class skating facility that offers an exhilarating experience for skaters of all levels. Known as "The Fastest Ice in the World," this venue provides a unique opportunity to skate where Olympians train. The atmosphere is vibrant, and the facility is well-maintained, making it a must-visit for sports enthusiasts.',
+        price: '$10',
+        rating: 4.0,
+        reviews: [
+            { text: 'Great place to skate with friends!', author: 'Anna K.' },
+            { text: 'The ice quality is amazing.', author: 'John D.' }
+        ]
+    },
+    'pizza73': {
+        title: 'Pizza 73',
+        location: '10th Ave, Calgary, AB',
+        description: 'Pizza 73 is a Canadian pizza chain known for its wide variety of pizza options, wings, and sides. Located on 10th Ave in Calgary, this branch offers a casual dining experience with quick service. Their customizable pizzas and unique dipping sauces make it a favorite for locals looking for a satisfying meal. Whether dining in or ordering for delivery, Pizza 73 is a reliable choice for pizza lovers.',
+        price: '$10-$20',
+        rating: 3.5,
+        reviews: [
+            { text: 'Great variety of toppings and quick service!', author: 'Liam H.' },
+            { text: 'The pizza was decent, but the wings were amazing.', author: 'Sophia W.' }
+        ]
+    }
+};
+    
+    // Show activity details popup
+    function showActivityDetails(element, activityId) {
+        // Prevent checkbox from being checked/unchecked when clicking on the activity
+        event.stopPropagation();
+        
+        const popup = document.getElementById('activityPopup');
+        const data = activityData[activityId] || {
+            title: 'Activity Details',
+            location: 'Location not specified',
+            description: 'Description not available',
+            price: '$',
+            rating: 3.0,
+            reviews: [{ text: 'No reviews yet.', author: '' }]
+        };
+        
+        // Populate popup with activity data
+        document.getElementById('popupTitle').textContent = data.title;
+        document.getElementById('popupTime').textContent = `${data.description}`;
+        document.getElementById('popupLocation').textContent = `Location: ${data.location}`;
+        document.getElementById('popupPrice').textContent = `Price: ${data.price}`;
+        
+        // Set rating stars
+        const ratingStars = document.getElementById('popupRating').querySelector('.star-rating');
+        ratingStars.innerHTML = '';
+        for (let i = 1; i <= 5; i++) {
+            const star = document.createElement('i');
+            star.className = i <= Math.floor(data.rating) ? 'fas fa-star' : 'far fa-star';
+            ratingStars.appendChild(star);
+        }
+        document.getElementById('popupRating').querySelector('.rating-text').textContent = `${data.rating}/5.0`;
+        
+        // Set reviews
+        const reviewsContainer = document.getElementById('popupReviews');
+        reviewsContainer.innerHTML = '<h4>Reviews</h4>';
+        data.reviews.forEach(review => {
+            const reviewDiv = document.createElement('div');
+            reviewDiv.className = 'review';
+            reviewDiv.innerHTML = `
+                <p class="review-text">"${review.text}"</p>
+                <p class="reviewer">- ${review.author}</p>
+            `;
+            reviewsContainer.appendChild(reviewDiv);
+        });
+        
+        // Position popup next to the clicked activity
+        const rect = element.getBoundingClientRect();
+        const popupContent = popup.querySelector('.popup-content');
+        
+        // Check if there's enough space on the right
+        if (rect.right + 350 < window.innerWidth) {
+            popup.style.left = `${rect.right + 10}px`;
+            popup.style.top = `${rect.top - 20}px`;
+        } else {
+            // Not enough space on right, show on left
+            popup.style.left = `${rect.left - 350 - 10}px`;
+            popup.style.top = `${rect.top - 20}px`;
+        }
+        
+        // Show popup
+        popup.style.display = 'block';
+    }
+    
+    // Close popup
+    function closePopup() {
+        document.getElementById('activityPopup').style.display = 'none';
+    }
+    
+    // Close popup when clicking outside
+    window.onclick = function(event) {
+        const popup = document.getElementById('activityPopup');
+        if (event.target == popup) {
+            popup.style.display = 'none';
+        }
+    }
         </script>
 	</body>
 </html>
