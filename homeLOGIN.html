@@ -4,6 +4,8 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/search.css">
         <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="css/itinerary.css">
+        <link rel="stylesheet" href="css/activity-popup.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
 		
@@ -183,7 +185,7 @@
                     <a href="newActivity.html"><button>+ Add to Itinerary</button></a>
 
                 </div>
-                <div id="activity">
+                <div id="activity" onclick="showActivityDetails(this, 'banff')">
                     <img id="activityPhoto" src="images/Pizza73Logo.svg.png" width="250" height="250" alt="Little Caesars">
                     <h3>Little Caesars</h3>
                     <div id="textRow">
@@ -197,6 +199,39 @@
                     <a href="newActivity.html"><button>+ Add to Itinerary</button></a>
                 </div>
             </div>  
+        </div>
+
+        <div id="activityPopup" class="activity-popup">
+            <div class="popup-content">
+                <span class="close-popup" onclick="closePopup()">&times;</span>
+                <h3 id="popupTitle">Activity Name</h3>
+                <p id="popupLocation" class="popup-location">Location: Downtown Calgary</p>
+                <p id="popupPrice" class="popup-price">Price: $$</p>
+                <div id="popupRating" class="popup-rating">
+                    <span class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </span>
+                    <span class="rating-text">4.0/5.0</span>
+                </div>
+                <div>
+                    
+                </div>
+                <div id="popupReviews" class="popup-reviews">
+                    <h4>Reviews</h4>
+                    <div class="review">
+                        <p class="review-text">"Great experience! Would definitely recommend."</p>
+                        <p class="reviewer">- John D.</p>
+                    </div>
+                    <div class="review">
+                        <p class="review-text">"Loved it. The staff was very friendly."</p>
+                        <p class="reviewer">- Sarah M.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
       </div>
@@ -217,6 +252,162 @@
                     // Reset icon rotation
                 }
             }
+
+            const activityData = {
+        'prince-edward': {
+            title: 'Prince Edward Island',
+            location: 'Prince Edward Island, Calgary',
+            price: '$$$',
+            rating: 4.5,
+            reviews: [
+                { text: 'Beautiful island with amazing views!', author: 'Emma T.' },
+                { text: 'Worth the visit, but a bit expensive.', author: 'Michael R.' }
+            ]
+        },
+        '17th-ave': {
+            title: '17th Avenue',
+            location: '17th Ave SW, Calgary',
+            price: '$$',
+            rating: 4.2,
+            reviews: [
+                { text: 'Great shopping and dining options!', author: 'Jessica K.' },
+                { text: 'Vibrant street with lots to do.', author: 'David L.' }
+            ]
+        },
+        'mr-puffs': {
+            title: 'Mr. Puffs',
+            location: '123 Main St, Calgary',
+            price: '$',
+            rating: 4.8,
+            reviews: [
+                { text: 'Best dessert in Calgary!', author: 'Alex P.' },
+                { text: 'The puffs are amazing, must try!', author: 'Sophia G.' }
+            ]
+        },
+        'downtown': {
+            title: 'Explore Downtown',
+            location: 'Downtown Calgary',
+            price: '$',
+            rating: 4.0,
+            reviews: [
+                { text: 'Great architecture and city views.', author: 'Robert J.' },
+                { text: 'Lots of interesting shops and cafes.', author: 'Linda M.' }
+            ]
+        },
+        'jump-room': {
+            title: 'Lunch at Jump Room',
+            location: '456 Centre St, Calgary',
+            price: '$$',
+            rating: 4.3,
+            reviews: [
+                { text: 'Delicious food and great atmosphere!', author: 'Thomas B.' },
+                { text: 'Good service but a bit pricey.', author: 'Hannah W.' }
+            ]
+        },
+        'banff': {
+            title: 'Go to Banff',
+            location: 'Banff National Park',
+            price: '$$',
+            rating: 5.0,
+            reviews: [
+                { text: 'Breathtaking views and amazing hiking trails!', author: 'Chris P.' },
+                { text: 'One of the most beautiful places I\'ve ever visited.', author: 'Maria S.' }
+            ]
+        },
+        'lake-louise': {
+            title: 'Visit Lake Louise',
+            location: 'Lake Louise, Banff National Park',
+            price: '$$',
+            rating: 4.9,
+            reviews: [
+                { text: 'The turquoise water is stunning!', author: 'James F.' },
+                { text: 'A must-see when visiting Banff.', author: 'Emily R.' }
+            ]
+        },
+        'long-activity': {
+            title: 'Long Activity Name',
+            location: 'Various locations in Calgary',
+            price: '$$',
+            rating: 4.1,
+            reviews: [
+                { text: 'Great activity despite the long name!', author: 'Taylor S.' },
+                { text: 'Worth checking out if you have time.', author: 'Jordan B.' }
+            ]
+        }
+    };
+    
+    // Show activity details popup
+    function showActivityDetails(element, activityId) {
+        // Prevent checkbox from being checked/unchecked when clicking on the activity
+        event.stopPropagation();
+        
+        const popup = document.getElementById('activityPopup');
+        const data = activityData[activityId] || {
+            title: 'Activity Details',
+            location: 'Location not specified',
+            price: '$',
+            rating: 3.0,
+            reviews: [{ text: 'No reviews yet.', author: '' }]
+        };
+        
+        // Populate popup with activity data
+        document.getElementById('popupTitle').textContent = data.title;
+        document.getElementById('popupLocation').textContent = `Location: ${data.location}`;
+        document.getElementById('popupPrice').textContent = `Price: ${data.price}`;
+        
+        // Set rating stars
+        const ratingStars = document.getElementById('popupRating').querySelector('.star-rating');
+        ratingStars.innerHTML = '';
+        for (let i = 1; i <= 5; i++) {
+            const star = document.createElement('i');
+            star.className = i <= Math.floor(data.rating) ? 'fas fa-star' : 'far fa-star';
+            ratingStars.appendChild(star);
+        }
+        document.getElementById('popupRating').querySelector('.rating-text').textContent = `${data.rating}/5.0`;
+        
+        // Set reviews
+        const reviewsContainer = document.getElementById('popupReviews');
+        reviewsContainer.innerHTML = '<h4>Reviews</h4>';
+        data.reviews.forEach(review => {
+            const reviewDiv = document.createElement('div');
+            reviewDiv.className = 'review';
+            reviewDiv.innerHTML = `
+                <p class="review-text">"${review.text}"</p>
+                <p class="reviewer">- ${review.author}</p>
+            `;
+            reviewsContainer.appendChild(reviewDiv);
+        });
+        
+        // Position popup next to the clicked activity
+        const rect = element.getBoundingClientRect();
+        const popupContent = popup.querySelector('.popup-content');
+        
+        // Check if there's enough space on the right
+        if (rect.right + 350 < window.innerWidth) {
+            popup.style.left = `${rect.right + 10}px`;
+            popup.style.top = `${rect.top - 20}px`;
+        } else {
+            // Not enough space on right, show on left
+            popup.style.left = `${rect.left - 350 - 10}px`;
+            popup.style.top = `${rect.top - 20}px`;
+        }
+        
+        // Show popup
+        popup.style.display = 'block';
+    }
+    
+    // Close popup
+    function closePopup() {
+        document.getElementById('activityPopup').style.display = 'none';
+    }
+    
+    // Close popup when clicking outside
+    window.onclick = function(event) {
+        const popup = document.getElementById('activityPopup');
+        if (event.target == popup) {
+            popup.style.display = 'none';
+        }
+    }
         </script>
 	</body>
 </html>
