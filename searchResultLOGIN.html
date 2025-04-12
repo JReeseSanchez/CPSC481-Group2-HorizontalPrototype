@@ -33,7 +33,7 @@
                     <div id="filters">
                         <div id="filter">
                             <label for="filterType">Type: </label>
-                            <select id="filterType" name="filterType">
+                            <select id="filterType" name="filterType" onmouseup="showActiveFilters()">
                                 <option value="activity">Activity</option>
                                 <option value="food">Food</option>
                                 <option value="hotel">Hotel</option>
@@ -44,8 +44,8 @@
                         
                         <div id="filter" class="distanceBox">
                             <p>Distance: <span id="distance">10</span>km</p>
-                            <input type="range" id="filterDistance" min="5" max="100" step="5" value="10">
-
+                            <input type="range" id="filterDistance" min="5" max="100" step="5" value="10" onmouseup="showActiveFilters()">
+    
                             <script>
                                 var slider = document.getElementById("filterDistance");
                                 var distance = document.getElementById("distance");
@@ -58,8 +58,8 @@
                         </div>
                         <div id="filter" class="priceBox">
                             <p>Maximum Price: $<span id="price">10</span></p>
-                            <input type="range" id="filterPrice" min="10" max="300" step="10" value="50">
-
+                            <input type="range" id="filterPrice" min="10" max="300" step="10" value="50" onmouseup="showActiveFilters()">
+    
                             <script>
                                 var sliderPrice = document.getElementById("filterPrice");
                                 var price = document.getElementById("price");
@@ -72,7 +72,7 @@
                         </div>
                         <div id="filter">
                             <label for="filterRating">Rating: </label>
-                            <select id="filterRating" name="filterRating">
+                            <select id="filterRating" name="filterRating" onmouseup="showActiveFilters()">
                                 <option value="1">&#9733;</option>
                                 <option value="2">&#9733;&#9733;</option>
                                 <option value="3">&#9733;&#9733;&#9733;</option>
@@ -80,7 +80,7 @@
                                 <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
                             </select>
                         </div>
-                        <input type="reset">
+                        <input type="reset" onclick="hideActiveFilters()">
                     </div>
                 </form>
                 <script>
@@ -95,7 +95,10 @@
                     <button onclick="toggleFilters()" id="arrowButton">
                         <img id="filterIcon" src="images/dropdownIcon.png" width="40" height="40" alt="Toggle Filters">
                     </button>
-                    <p class="filter-label">Filters</p>
+                </div>
+                <div id="activeFilter">
+                    <img id="filterPhoto" src="images/activeFilter.webp" width="30" height="30" alt="Active Filters">
+                    <p>Active Filter(s)</p>
                 </div>
             </div>
             <div id="recommendedBox">
@@ -189,6 +192,9 @@
             var filter = document.getElementById("filters");
             filter.style.display = "none";
 
+            var activeFilter = document.getElementById("activeFilter");
+            activeFilter.style.display = "none";
+
             function toggleFilters() {
                 var filter = document.getElementById("filters");
                 var icon = document.getElementById("filterIcon");
@@ -200,6 +206,14 @@
                     filter.style.display = "none";
                     // Reset icon rotation
                 }
+            }
+
+            function showActiveFilters(){
+                activeFilter.style.display = "flex";
+            }
+
+            function hideActiveFilters(){
+                activeFilter.style.display = "none";
             }
         </script>
         <script>
