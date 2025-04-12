@@ -191,3 +191,47 @@ img {
     color: #444;
     font-weight: 500;
 }
+
+#helpIcon {
+    position: fixed;
+    top: 150px;
+    right: 50px;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#helpIcon:hover {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+#helpTooltip {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+}
+
+#helpIcon:hover #helpTooltip {
+    display: block;
+}
+
+.kappaForm {    
+    width: 80%;
+    text-align: center;
+    align-items: center;
+    /* Ensure it doesn't break if the screen is too small */
+}
+
+.kappaForm > select {
+    border-radius: 20px;
+}

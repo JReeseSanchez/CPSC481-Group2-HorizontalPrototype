@@ -4,6 +4,8 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/result.css">
         <link rel="stylesheet" href="css/search.css">
+        <link rel="stylesheet" href="css/itinerary.css">
+        <link rel="stylesheet" href="css/activity-popup.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 	</head>
 	<body>
@@ -27,11 +29,12 @@
             <div id="goBackContainer" style="display: none; margin-bottom: 20px;">
                 <button id="goBackButton" onclick="goBackToItinerary()">&#8592; Go Back</button>
             </div>
+            
             <div class="search-container">
                 <form action="searchResult.html" method="GET">
                     <div class="search-row">
                         <input type="text" id="fname" name="fname" placeholder="Search">
-                        <button type="button" class="map-view-button">Show Results On Map</button>
+                        <button class="map-view-button" onclick="showMapPopup(1)">Show Results On Map</button>                        
                     </div>
                     <div id="filters">
                         <div id="filter">
@@ -195,6 +198,15 @@
                     </div>
                 </div>  
             </div>
+            <div id="mapPopup" class="map-popup">
+                <div class="map-popup-content">
+                    <span class="close-map-popup" onclick="closeMapPopup()">&times;</span>
+                    <h3 id="mapPopupTitle">Day Map View</h3>
+                    <div class="map-container">
+                        <img id="mapImage" src="images/1_vH7fb-tzLapLAFVOxFp7dw.png" alt="Map View" />
+                    </div>
+                </div>
+            </div>
         </div>
 
         <footer>
@@ -240,6 +252,36 @@
             link.href += (link.href.includes("?") ? "&" : "?") + `day=${day}`;
           }
         });
+      </script>
+      <script>
+            const mapDetails = {
+        1: {
+            title: 'Search results on a map',
+            mapImage: 'images/1_vH7fb-tzLapLAFVOxFp7dw.png', // Replace with actual map image
+        },
+        // Add more days as needed
+    };
+
+    // Show the map popup
+    function showMapPopup(day) {
+        const popup = document.getElementById('mapPopup');
+        const data = mapDetails[day] || {
+            title: 'Map View',
+            mapImage: 'images/1_vH7fb-tzLapLAFVOxFp7dw.png',
+        };
+
+        // Populate the popup with map details
+        document.getElementById('mapPopupTitle').textContent = data.title;
+        document.getElementById('mapImage').src = data.mapImage;
+
+        // Show the popup
+        popup.style.display = 'block';
+    }
+
+    // Close the map popup
+    function closeMapPopup() {
+        document.getElementById('mapPopup').style.display = 'none';
+    }
       </script>
       
 	</body>

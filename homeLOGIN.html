@@ -116,7 +116,7 @@
         <div id="recommendedBox">
             <h2 style="margin-top: 60px; margin-bottom: 30px;"> Recommended Activities</h2>
             <div id="container">
-                <div id="activity">
+                <div id="activity" onclick="showActivityDetails(this, 'prince-edward')">
                     <img id="activityPhoto" src="images/Little-Caesars-Logo.png" width="250" height="250" alt="Little Caesars">
                     <h3>Little Caesars</h3>
                     <div id="textRow">
@@ -129,7 +129,7 @@
                     </div>
                     <a href="newActivity.html"><button>+ Add to Itinerary</button></a>
                 </div>
-                <div id="activity">
+                <div id="activity" onclick="showActivityDetails(this, 'banff')">
                     <img id="activityPhoto" src="images/OlympicOval.jpg" width="250" height="250" alt="Little Caesars">
                     <h3>Skating at the Olympic Oval</h3>
                     <div id="textRow">
@@ -143,7 +143,7 @@
                     <a href="newActivity.html"><button>+ Add to Itinerary</button></a>
 
                 </div>
-                <div id="activity">
+                <div id="activity" onclick="showActivityDetails(this, 'pizza73')">
                     <img id="activityPhoto" src="images/Pizza73Logo.svg.png" width="250" height="250" alt="Little Caesars">
                     <h3>Little Caesars</h3>
                     <div id="textRow">
@@ -158,7 +158,7 @@
                 </div>
             </div>
             <div id="container">
-                <div id="activity">
+                <div id="activity" onclick="showActivityDetails(this, 'banff')">
                     <img id="activityPhoto" src="images/Little-Caesars-Logo.png" width="250" height="250" alt="Little Caesars">
                     <h3>Little Caesars</h3>
                     <div id="textRow">
@@ -171,7 +171,7 @@
                     </div>
                     <a href="newActivity.html"><button>+ Add to Itinerary</button></a>
                 </div>
-                <div id="activity">
+                <div id="activity" onclick="showActivityDetails(this, 'banff')">
                     <img id="activityPhoto" src="images/OlympicOval.jpg" width="250" height="250" alt="Little Caesars">
                     <h3>Skating at the Olympic Oval</h3>
                     <div id="textRow">
@@ -206,6 +206,7 @@
                 <span class="close-popup" onclick="closePopup()">&times;</span>
                 <h3 id="popupTitle">Activity Name</h3>
                 <p id="popupLocation" class="popup-location">Location: Downtown Calgary</p>
+                <p id="popupTime" class="popup-time">Quick Description</p>
                 <p id="popupPrice" class="popup-price">Price: $$</p>
                 <div id="popupRating" class="popup-rating">
                     <span class="star-rating">
@@ -254,87 +255,40 @@
             }
 
             const activityData = {
-        'prince-edward': {
-            title: 'Prince Edward Island',
-            location: 'Prince Edward Island, Calgary',
-            price: '$$$',
-            rating: 4.5,
-            reviews: [
-                { text: 'Beautiful island with amazing views!', author: 'Emma T.' },
-                { text: 'Worth the visit, but a bit expensive.', author: 'Michael R.' }
-            ]
-        },
-        '17th-ave': {
-            title: '17th Avenue',
-            location: '17th Ave SW, Calgary',
-            price: '$$',
-            rating: 4.2,
-            reviews: [
-                { text: 'Great shopping and dining options!', author: 'Jessica K.' },
-                { text: 'Vibrant street with lots to do.', author: 'David L.' }
-            ]
-        },
-        'mr-puffs': {
-            title: 'Mr. Puffs',
-            location: '123 Main St, Calgary',
-            price: '$',
-            rating: 4.8,
-            reviews: [
-                { text: 'Best dessert in Calgary!', author: 'Alex P.' },
-                { text: 'The puffs are amazing, must try!', author: 'Sophia G.' }
-            ]
-        },
-        'downtown': {
-            title: 'Explore Downtown',
-            location: 'Downtown Calgary',
-            price: '$',
-            rating: 4.0,
-            reviews: [
-                { text: 'Great architecture and city views.', author: 'Robert J.' },
-                { text: 'Lots of interesting shops and cafes.', author: 'Linda M.' }
-            ]
-        },
-        'jump-room': {
-            title: 'Lunch at Jump Room',
-            location: '456 Centre St, Calgary',
-            price: '$$',
-            rating: 4.3,
-            reviews: [
-                { text: 'Delicious food and great atmosphere!', author: 'Thomas B.' },
-                { text: 'Good service but a bit pricey.', author: 'Hannah W.' }
-            ]
-        },
-        'banff': {
-            title: 'Go to Banff',
-            location: 'Banff National Park',
-            price: '$$',
-            rating: 5.0,
-            reviews: [
-                { text: 'Breathtaking views and amazing hiking trails!', author: 'Chris P.' },
-                { text: 'One of the most beautiful places I\'ve ever visited.', author: 'Maria S.' }
-            ]
-        },
-        'lake-louise': {
-            title: 'Visit Lake Louise',
-            location: 'Lake Louise, Banff National Park',
-            price: '$$',
-            rating: 4.9,
-            reviews: [
-                { text: 'The turquoise water is stunning!', author: 'James F.' },
-                { text: 'A must-see when visiting Banff.', author: 'Emily R.' }
-            ]
-        },
-        'long-activity': {
-            title: 'Long Activity Name',
-            location: 'Various locations in Calgary',
-            price: '$$',
-            rating: 4.1,
-            reviews: [
-                { text: 'Great activity despite the long name!', author: 'Taylor S.' },
-                { text: 'Worth checking out if you have time.', author: 'Jordan B.' }
-            ]
-        }
-    };
+    'prince-edward': {
+        title: 'Little Caesars',
+        location: '17th Ave, Calgary, AB',
+        description: 'Little Caesars is a well-known pizza chain offering a variety of delicious and affordable pizzas. Located on 17th Ave in Calgary, this spot is perfect for a quick bite with friends or family. Their signature "Hot-N-Ready" pizzas are always fresh and ready to go, making it a convenient choice for those on the move.',
+        price: '$10-$20',
+        rating: 4.0,
+        reviews: [
+            { text: 'Totally a bang for your buck!', author: 'Emma T.' },
+            { text: 'The pizza is very greasy, did not like.', author: 'Michael R.' }
+        ]
+    },
+    'banff': {
+        title: 'Skating at the Olympic Oval',
+        location: 'Olympic Oval, Calgary, AB',
+        description: 'The Olympic Oval in Calgary is a world-class skating facility that offers an exhilarating experience for skaters of all levels. Known as "The Fastest Ice in the World," this venue provides a unique opportunity to skate where Olympians train. The atmosphere is vibrant, and the facility is well-maintained, making it a must-visit for sports enthusiasts.',
+        price: '$10',
+        rating: 4.0,
+        reviews: [
+            { text: 'Great place to skate with friends!', author: 'Anna K.' },
+            { text: 'The ice quality is amazing.', author: 'John D.' }
+        ]
+    },
+    'pizza73': {
+        title: 'Pizza 73',
+        location: '10th Ave, Calgary, AB',
+        description: 'Pizza 73 is a Canadian pizza chain known for its wide variety of pizza options, wings, and sides. Located on 10th Ave in Calgary, this branch offers a casual dining experience with quick service. Their customizable pizzas and unique dipping sauces make it a favorite for locals looking for a satisfying meal. Whether dining in or ordering for delivery, Pizza 73 is a reliable choice for pizza lovers.',
+        price: '$10-$20',
+        rating: 3.5,
+        reviews: [
+            { text: 'Great variety of toppings and quick service!', author: 'Liam H.' },
+            { text: 'The pizza was decent, but the wings were amazing.', author: 'Sophia W.' }
+        ]
+    }
+};
     
     // Show activity details popup
     function showActivityDetails(element, activityId) {
@@ -345,6 +299,7 @@
         const data = activityData[activityId] || {
             title: 'Activity Details',
             location: 'Location not specified',
+            description: 'Description not available',
             price: '$',
             rating: 3.0,
             reviews: [{ text: 'No reviews yet.', author: '' }]
@@ -352,6 +307,7 @@
         
         // Populate popup with activity data
         document.getElementById('popupTitle').textContent = data.title;
+        document.getElementById('popupTime').textContent = `${data.description}`;
         document.getElementById('popupLocation').textContent = `Location: ${data.location}`;
         document.getElementById('popupPrice').textContent = `Price: ${data.price}`;
         
