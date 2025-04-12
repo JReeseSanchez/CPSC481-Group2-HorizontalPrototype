@@ -97,6 +97,16 @@ form > select {
     justify-content: center;
 }
 
+#activeFilter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#activeFilter > * {
+    margin: 0 5px;
+}
+
 /* Ensure all filter content is consistently sized */
 #filter select, 
 #filter input[type="range"] {

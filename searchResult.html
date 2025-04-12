@@ -32,7 +32,7 @@
                     <div id="filters">
                         <div id="filter">
                             <label for="filterType">Type: </label>
-                            <select id="filterType" name="filterType">
+                            <select id="filterType" name="filterType" onmouseup="showActiveFilters()">
                                 <option value="activity">Activity</option>
                                 <option value="food">Food</option>
                                 <option value="hotel">Hotel</option>
@@ -43,8 +43,8 @@
                         
                         <div id="filter" class="distanceBox">
                             <p>Distance: <span id="distance">10</span>km</p>
-                            <input type="range" id="filterDistance" min="5" max="100" step="5" value="10">
-
+                            <input type="range" id="filterDistance" min="5" max="100" step="5" value="10" onmouseup="showActiveFilters()">
+    
                             <script>
                                 var slider = document.getElementById("filterDistance");
                                 var distance = document.getElementById("distance");
@@ -57,8 +57,8 @@
                         </div>
                         <div id="filter" class="priceBox">
                             <p>Maximum Price: $<span id="price">10</span></p>
-                            <input type="range" id="filterPrice" min="10" max="300" step="10" value="50">
-
+                            <input type="range" id="filterPrice" min="10" max="300" step="10" value="50" onmouseup="showActiveFilters()">
+    
                             <script>
                                 var sliderPrice = document.getElementById("filterPrice");
                                 var price = document.getElementById("price");
@@ -71,7 +71,7 @@
                         </div>
                         <div id="filter">
                             <label for="filterRating">Rating: </label>
-                            <select id="filterRating" name="filterRating">
+                            <select id="filterRating" name="filterRating" onmouseup="showActiveFilters()">
                                 <option value="1">&#9733;</option>
                                 <option value="2">&#9733;&#9733;</option>
                                 <option value="3">&#9733;&#9733;&#9733;</option>
@@ -79,7 +79,7 @@
                                 <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
                             </select>
                         </div>
-                        <input type="reset">
+                        <input type="reset" onclick="hideActiveFilters()">
                     </div>
                 </div>
                 <script>
@@ -94,11 +94,14 @@
                     <button onclick="toggleFilters()" id="arrowButton">
                         <img id="filterIcon" src="images/dropdownIcon.png" width="40" height="40" alt="Toggle Filters">
                     </button>
-                    <p class="filter-label">Filters</p>
+                </div>
+                <div id="activeFilter">
+                    <img id="filterPhoto" src="images/activeFilter.webp" width="30" height="30" alt="Active Filters">
+                    <p>Active Filter(s)</p>
                 </div>
             </div>
             <div id="recommendedBox">
-                <h2> Search Results</h2>
+                <h2>Found 6 results for "Pizza"</h2>
                 <div id="container">
                     <div id="activity">
                         <img id="activityPhoto" src="images/Little-Caesars-Logo.png" width="250" height="250" alt="Little Caesars">
@@ -115,15 +118,15 @@
 
                     </div>
                     <div id="activity">
-                        <img id="activityPhoto" src="images/OlympicOval.jpg" width="250" height="250" alt="Little Caesars">
-                        <h3>Skating at the Olympic Oval</h3>
+                        <img id="activityPhoto" src="https://static.wixstatic.com/media/4c3669_68c1f8ee91424f26978c7ef2726bfb9f~mv2.png" width="250" height="250" alt="Little Caesars">
+                        <h3>Seniors Pizza</h3>
                         <div id="textRow">
-                            <p>Activity</p>
-                            <p>$10</p>
+                            <p>Resturant</p>
+                            <p>$10-$30</p>
                         </div>
                         <div id="textRow">
                             <p>30km</p>
-                            <p>4/5 &#9733;</p>
+                            <p>5/5 &#9733;</p>
                         </div>
                         <a href="login.html"><button>Add to Itinerary</button></a>
 
@@ -146,42 +149,42 @@
                 </div>
                 <div id="container">
                     <div id="activity">
-                        <img id="activityPhoto" src="images/calgaryTower.jpg" width="250" height="250" alt="Little Caesars">
-                        <h3>Visit the Calgary Tower</h3>
+                        <img id="activityPhoto" src="images/nobelPie.png" width="250" height="250" alt="Noble Pie" style="background-color: black;">
+                        <h3>Nobel Pie</h3>
                         <div id="textRow">
-                            <p>Activity</p>
-                            <p>$10-$25</p>
+                            <p>Resturant</p>
+                            <p>$20-$40</p>
                         </div>
                         <div id="textRow">
                             <p>30km</p>
-                            <p>4/5 &#9733;</p>
+                            <p>5/5 &#9733;</p>
                         </div>
                         <a href="login.html"><button>+ Add to Itinerary</button></a>
                     </div>
                     <div id="activity">
-                        <img id="activityPhoto" src="images/mrPuffs.png" width="250" height="250" alt="Little Caesars">
-                        <h3>Mr Puffs</h3>
+                        <img id="activityPhoto" src="images/pizzaHut.png" width="250" height="200" alt="Pizza Hut" >
+                        <h3>Pizza Hut</h3>
                         <div id="textRow">
                             <p>Resturant</p>
                             <p>$15-$30</p>
                         </div>
                         <div id="textRow">
-                            <p>50px</p>
-                            <p>5/5 &#9733;</p>
+                            <p>24km</p>
+                            <p>4/5 &#9733;</p>
                         </div>
                         <a href="login.html"><button>+ Add to Itinerary</button></a>
     
                     </div>
                     <div id="activity">
-                        <img id="activityPhoto" src="images/ChinookCentre.jpg" width="250" height="250" alt="Little Caesars">
-                        <h3>Chinook Center Mall</h3>
+                        <img id="activityPhoto" src="images/cpu.png" width="250" height="200" alt="Canadian Pizza Unlimited">
+                        <h3>Canadian Pizza Unlimited</h3>
                         <div id="textRow">
                             <p>Shopping</p>
-                            <p>$10-$100</p>
+                            <p>$10-$20</p>
                         </div>
                         <div id="textRow">
-                            <p>20km</p>
-                            <p>4/5 &#9733;</p>
+                            <p>32km</p>
+                            <p>3/5 &#9733;</p>
                         </div>
                         <a href="login.html"><button>+ Add to Itinerary</button></a>
                     </div>
@@ -201,6 +204,9 @@
             var filter = document.getElementById("filters");
             filter.style.display = "none";
 
+            var activeFilter = document.getElementById("activeFilter");
+            activeFilter.style.display = "none";
+
             function toggleFilters() {
                 var filter = document.getElementById("filters");
                 var icon = document.getElementById("filterIcon");
@@ -212,6 +218,14 @@
                     filter.style.display = "none";
                     // Reset icon rotation
                 }
+            }
+
+            function showActiveFilters(){
+                activeFilter.style.display = "flex";
+            }
+
+            function hideActiveFilters(){
+                activeFilter.style.display = "none";
             }
         </script>
         <script>

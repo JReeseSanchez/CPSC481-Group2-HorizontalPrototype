@@ -8,7 +8,6 @@
         <link rel="stylesheet" href="css/activity-popup.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
-		
 	</head>
 	<body>
       <header>
@@ -29,9 +28,11 @@
       </header>
       <div id="mainPage">
         <div id="itineraryContainer">
-            <h2>Plan your next trip here</h2>
-            <p>Click the button to begin creating the itinerary to you next trip</p>
-            <a href="newItinarary.html"><button>Create Itineraries</button></a>
+            <div id="box">
+                <h2>Plan your next trip here</h2>
+                <p>Click the button to begin creating the itinerary to you next trip</p>
+                <a href="newItinarary.html"><button>Create Itineraries</button></a>
+            </div>
         </div>
         
         <div class="search-container">
@@ -43,10 +44,9 @@
                     <input type="text" id="fname" name="fname" placeholder="Search">
                 </div>
                 <div id="filters">
-                    
                     <div id="filter">
                         <label for="filterType">Type: </label>
-                        <select id="filterType" name="filterType">
+                        <select id="filterType" name="filterType" onmouseup="showActiveFilters()">
                             <option value="activity">Activity</option>
                             <option value="food">Food</option>
                             <option value="hotel">Hotel</option>
@@ -57,7 +57,7 @@
                     
                     <div id="filter" class="distanceBox">
                         <p>Distance: <span id="distance">10</span>km</p>
-                        <input type="range" id="filterDistance" min="5" max="100" step="5" value="10">
+                        <input type="range" id="filterDistance" min="5" max="100" step="5" value="10" onmouseup="showActiveFilters()">
 
                         <script>
                             var slider = document.getElementById("filterDistance");
@@ -71,7 +71,7 @@
                     </div>
                     <div id="filter" class="priceBox">
                         <p>Maximum Price: $<span id="price">10</span></p>
-                        <input type="range" id="filterPrice" min="10" max="300" step="10" value="50">
+                        <input type="range" id="filterPrice" min="10" max="300" step="10" value="50" onmouseup="showActiveFilters()">
 
                         <script>
                             var sliderPrice = document.getElementById("filterPrice");
@@ -85,7 +85,7 @@
                     </div>
                     <div id="filter">
                         <label for="filterRating">Rating: </label>
-                        <select id="filterRating" name="filterRating">
+                        <select id="filterRating" name="filterRating" onmouseup="showActiveFilters()">
                             <option value="1">&#9733;</option>
                             <option value="2">&#9733;&#9733;</option>
                             <option value="3">&#9733;&#9733;&#9733;</option>
@@ -93,9 +93,8 @@
                             <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
                         </select>
                     </div>
-                    <input type="reset">
+                    <input type="reset" onclick="hideActiveFilters()">
                 </div>
-                
             </form>
             <script>
                 document.getElementById("fname").addEventListener("keypress", function(event) {
@@ -109,7 +108,6 @@
                 <button style="width: 500px;" onclick="toggleFilters()" id="arrowButton">
                     <img id="filterIcon" src="images/dropdownIcon.png" width="40" height="40" alt="Toggle Filters">
                 </button>
-                <p class="filter-label">Filters</p>
             </div>
         </div>
 
@@ -245,6 +243,9 @@
             var filter = document.getElementById("filters");
             filter.style.display = "none";
 
+            var activeFilter = document.getElementById("activeFilter");
+            activeFilter.style.display = "none";
+
             function toggleFilters() {
                 var filter = document.getElementById("filters");
                 var icon = document.getElementById("filterIcon");
@@ -258,41 +259,48 @@
                 }
             }
 
+            function showActiveFilters(){
+                activeFilter.style.display = "flex";
+            }
+
+            function hideActiveFilters(){
+                activeFilter.style.display = "none";
+            }
             const activityData = {
-    'prince-edward': {
-        title: 'Little Caesars',
-        location: '17th Ave, Calgary, AB',
-        description: 'Little Caesars is a well-known pizza chain offering a variety of delicious and affordable pizzas. Located on 17th Ave in Calgary, this spot is perfect for a quick bite with friends or family. Their signature "Hot-N-Ready" pizzas are always fresh and ready to go, making it a convenient choice for those on the move.',
-        price: '$10-$20',
-        rating: 4.0,
-        reviews: [
-            { text: 'Totally a bang for your buck!', author: 'Emma T.' },
-            { text: 'The pizza is very greasy, did not like.', author: 'Michael R.' }
-        ]
-    },
-    'banff': {
-        title: 'Skating at the Olympic Oval',
-        location: 'Olympic Oval, Calgary, AB',
-        description: 'The Olympic Oval in Calgary is a world-class skating facility that offers an exhilarating experience for skaters of all levels. Known as "The Fastest Ice in the World," this venue provides a unique opportunity to skate where Olympians train. The atmosphere is vibrant, and the facility is well-maintained, making it a must-visit for sports enthusiasts.',
-        price: '$10',
-        rating: 4.0,
-        reviews: [
-            { text: 'Great place to skate with friends!', author: 'Anna K.' },
-            { text: 'The ice quality is amazing.', author: 'John D.' }
-        ]
-    },
-    'pizza73': {
-        title: 'Pizza 73',
-        location: '10th Ave, Calgary, AB',
-        description: 'Pizza 73 is a Canadian pizza chain known for its wide variety of pizza options, wings, and sides. Located on 10th Ave in Calgary, this branch offers a casual dining experience with quick service. Their customizable pizzas and unique dipping sauces make it a favorite for locals looking for a satisfying meal. Whether dining in or ordering for delivery, Pizza 73 is a reliable choice for pizza lovers.',
-        price: '$10-$20',
-        rating: 3.5,
-        reviews: [
-            { text: 'Great variety of toppings and quick service!', author: 'Liam H.' },
-            { text: 'The pizza was decent, but the wings were amazing.', author: 'Sophia W.' }
-        ]
-    }
-};
+            'prince-edward': {
+                title: 'Little Caesars',
+                location: '17th Ave, Calgary, AB',
+                description: 'Little Caesars is a well-known pizza chain offering a variety of delicious and affordable pizzas. Located on 17th Ave in Calgary, this spot is perfect for a quick bite with friends or family. Their signature "Hot-N-Ready" pizzas are always fresh and ready to go, making it a convenient choice for those on the move.',
+                price: '$10-$20',
+                rating: 4.0,
+                reviews: [
+                    { text: 'Totally a bang for your buck!', author: 'Emma T.' },
+                    { text: 'The pizza is very greasy, did not like.', author: 'Michael R.' }
+                ]
+            },
+            'banff': {
+                title: 'Skating at the Olympic Oval',
+                location: 'Olympic Oval, Calgary, AB',
+                description: 'The Olympic Oval in Calgary is a world-class skating facility that offers an exhilarating experience for skaters of all levels. Known as "The Fastest Ice in the World," this venue provides a unique opportunity to skate where Olympians train. The atmosphere is vibrant, and the facility is well-maintained, making it a must-visit for sports enthusiasts.',
+                price: '$10',
+                rating: 4.0,
+                reviews: [
+                    { text: 'Great place to skate with friends!', author: 'Anna K.' },
+                    { text: 'The ice quality is amazing.', author: 'John D.' }
+                ]
+            },
+            'pizza73': {
+                title: 'Pizza 73',
+                location: '10th Ave, Calgary, AB',
+                description: 'Pizza 73 is a Canadian pizza chain known for its wide variety of pizza options, wings, and sides. Located on 10th Ave in Calgary, this branch offers a casual dining experience with quick service. Their customizable pizzas and unique dipping sauces make it a favorite for locals looking for a satisfying meal. Whether dining in or ordering for delivery, Pizza 73 is a reliable choice for pizza lovers.',
+                price: '$10-$20',
+                rating: 3.5,
+                reviews: [
+                    { text: 'Great variety of toppings and quick service!', author: 'Liam H.' },
+                    { text: 'The pizza was decent, but the wings were amazing.', author: 'Sophia W.' }
+                ]
+            }
+        };
     
     // Show activity details popup
     function showActivityDetails(element, activityId) {
