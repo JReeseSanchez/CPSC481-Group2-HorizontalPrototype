@@ -1,35 +1,3 @@
-/* Override styles from itinerary.css to match style.css */
-body {
-    background-color: rgb(242, 249, 255) !important;
-    text-align: inherit;
-}
-
-header {
-    background-color: transparent !important;
-    padding: 0 !important;
-}
-
-#titleHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: normal;
-    padding: 0;
-}
-
-#title {
-    width: 25%;
-    padding: 10px;
-    text-align: center;
-}
-
-#headerItem {
-    background-color: rgb(145, 176, 218);
-    width: 150px;
-}
-
-#headerItem:hover {
-    background-color: rgb(188, 206, 231);
-}
 
 /* Specific styles for createItinerary.html */
 .trip-title {
